@@ -58,4 +58,10 @@
         android:textSize="20dp"
         android:text="Thông tin dịch vụ \n chúng tôi cung cấp"/>
 
+    <com.example.nursinghome_android.CustomUI.CustomButton
+        android:id="@+id/customButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"/>
+
 </LinearLayout>

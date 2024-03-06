@@ -7,6 +7,7 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.nursinghome_android.CustomUI.CustomButton;
 import com.example.nursinghome_android.R;
 import com.example.nursinghome_android.subactivities.SettingUserActivity;
 import com.example.nursinghome_android.usersubactivities.ServiceInfoActivity;
@@ -33,5 +34,9 @@ public class UserActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+
+        CustomButton customButton = findViewById(R.id.customButton);
+        customButton.setIcon(R.drawable.iconserviceinfo1);
+        customButton.setLabel("Your Text");
     }
 }
