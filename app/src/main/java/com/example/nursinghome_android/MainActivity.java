@@ -12,11 +12,6 @@ import org.json.JSONObject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.nursinghome_android.api.APIClient;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.IOException;
 
 import okhttp3.Call;

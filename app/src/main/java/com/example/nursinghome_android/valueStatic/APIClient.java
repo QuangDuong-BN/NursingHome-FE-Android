@@ -1,4 +1,4 @@
-package com.example.nursinghome_android.api;
+package com.example.nursinghome_android.valueStatic;
 
 import okhttp3.*;
 import org.json.JSONException;

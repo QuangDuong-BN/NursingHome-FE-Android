@@ -17,10 +17,22 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".usersubactivities.DetailServiceInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".usersubactivities.BookingServiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListUserActivity.ListUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListUserActivity.ListUserFromBookingServiceActivity"
+            android:exported="false" />
+        <activity
             android:name=".subactivities.SettingUserActivity"
             android:exported="false" />
         <activity
-            android:name=".usersubactivities.ServiceInfoActivity"
+            android:name=".usersubactivities.ListServiceInfoActivity"
             android:exported="false" />
         <activity
             android:name=".mainactivity.CookAndCleanerActivity"

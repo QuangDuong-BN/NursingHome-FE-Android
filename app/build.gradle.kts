@@ -39,9 +39,11 @@ dependencies {
     implementation("com.google.code.gson:gson:2.8.8")
     implementation("com.squareup.okhttp3:okhttp:4.9.0")
     // https://mvnrepository.com/artifact/org.projectlombok/lombok
-    implementation("org.projectlombok:lombok:1.18.30")
+    compileOnly("org.projectlombok:lombok:1.18.30")
     annotationProcessor("org.projectlombok:lombok:1.18.30")
-
+    implementation("com.github.GrenderG:Toasty:1.5.2")
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
 
 
 

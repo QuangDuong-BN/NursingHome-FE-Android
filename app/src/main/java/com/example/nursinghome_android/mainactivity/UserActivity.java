@@ -8,9 +8,10 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.nursinghome_android.CustomUI.CustomButton;
+import com.example.nursinghome_android.ListUserActivity.ListUserActivity;
 import com.example.nursinghome_android.R;
 import com.example.nursinghome_android.subactivities.SettingUserActivity;
-import com.example.nursinghome_android.usersubactivities.ServiceInfoActivity;
+import com.example.nursinghome_android.valueStatic.ChooseFuture;
 
 public class UserActivity extends AppCompatActivity {
     Button buttonServiceInfo;
@@ -22,9 +23,9 @@ public class UserActivity extends AppCompatActivity {
 
         buttonServiceInfo = findViewById(R.id.buttonServiceInfo);
         buttonServiceInfo.setOnClickListener(v -> {
-            Intent intent = new Intent(UserActivity.this, ServiceInfoActivity.class);
+            Intent intent = new Intent(UserActivity.this, ListUserActivity.class);
+            ChooseFuture.chooseFuture= "BookingService";
             startActivity(intent);
-            finish();
         });
 
 
@@ -32,7 +33,6 @@ public class UserActivity extends AppCompatActivity {
         buttonSettingUser.setOnClickListener(v -> {
             Intent intent = new Intent(UserActivity.this, SettingUserActivity.class);
             startActivity(intent);
-            finish();
         });
 
         CustomButton customButton = findViewById(R.id.customButton);

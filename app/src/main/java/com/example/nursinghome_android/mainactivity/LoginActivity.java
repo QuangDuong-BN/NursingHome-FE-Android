@@ -83,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
                     try {
                         JSONObject jsonResponse = new JSONObject(responseData);
                         RoleUser roleUser = RoleUser.valueOf(jsonResponse.getString("role"));
-                        if (roleUser.equals(RoleUser.USER)) {
+                        if (roleUser.equals(RoleUser.FAMILY_MEMBER)) {
                             Intent intent = new Intent(LoginActivity.this, UserActivity.class);
                             startActivity(intent);
                             finish();
@@ -169,7 +169,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), roleUser.toString(), Toast.LENGTH_SHORT).show();
                             }
                         });
-                        if (roleUser.equals(RoleUser.USER)) {
+                        if (roleUser.equals(RoleUser.FAMILY_MEMBER)) {
                             Intent intent = new Intent(LoginActivity.this, UserActivity.class);
                             startActivity(intent);
                             finish();

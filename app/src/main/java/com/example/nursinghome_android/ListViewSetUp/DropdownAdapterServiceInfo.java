@@ -1,5 +1,6 @@
 package com.example.nursinghome_android.ListViewSetUp;
 
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,18 +11,18 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.nursinghome_android.R;
-import com.example.nursinghome_android.entityDTO.UserItemforListUserDTO;
+import com.example.nursinghome_android.entityDTO.ServiceInfoforListServiceInfoDTO;
 
 import java.util.List;
 
-public class DropdownAdapter extends ArrayAdapter<UserItemforListUserDTO> {
+public class DropdownAdapterServiceInfo extends ArrayAdapter<ServiceInfoforListServiceInfoDTO> {
 
     private LayoutInflater mInflater;
-    private List<UserItemforListUserDTO> mData;
+    private List<ServiceInfoforListServiceInfoDTO> mData;
     private OnClickListener mClickListener;
 
-    public DropdownAdapter(Context context, List<UserItemforListUserDTO> data, OnClickListener clickListener) {
-        super(context, R.layout.list_item_dropdown, data);
+    public DropdownAdapterServiceInfo(Context context, List<ServiceInfoforListServiceInfoDTO> data, OnClickListener clickListener) {
+        super(context, R.layout.list_item_dropdown_serviceinfo, data);
         mInflater = LayoutInflater.from(context);
         mData = data;
         mClickListener = clickListener;
@@ -42,16 +43,16 @@ public class DropdownAdapter extends ArrayAdapter<UserItemforListUserDTO> {
         }
 
         // Lấy dữ liệu tại vị trí
-        UserItemforListUserDTO item = mData.get(position);
+        ServiceInfoforListServiceInfoDTO item = mData.get(position);
 
         // Thiết lập dữ liệu cho các thành phần giao diện
-        holder.textViewServiceName.setText("Name"+item.getName());
-        holder.textViewDescription.setText("Quê quán:" + item.getAddress()+"\nGio tinh: ");
+        holder.textViewServiceName.setText("Gói: "+item.getName());
+        holder.textViewDescription.setText("Đối tượng: " + item.getDescriptionService());
 
+        // Sử dụng Glide để đặt hình ảnh từ URL
         Glide.with(getContext())
-                .load(item.getImageUrl())
+                .load(item.getImageUrlIcon())
                 .into(holder.imageViewIcon);
-
         // Gắn OnClickListener cho convertView
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,3 +78,4 @@ public class DropdownAdapter extends ArrayAdapter<UserItemforListUserDTO> {
         TextView textViewDescription;
     }
 }
+

@@ -6,5 +6,6 @@ public enum RoleUser {
     DOCTOR,
     COOK,
     CLEANER,
-    USER
+    FAMILY_MEMBER, // Vai trò của người nhà dùng app đăng kí
+    SERVICE_USER // Vai trò của người sử dụng dịch vụ trung tâm dưỡng não
 }
