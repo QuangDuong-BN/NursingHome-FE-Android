@@ -17,10 +17,16 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".usersubactivities.MealPlanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".usersubactivities.RegisterServiceActivity"
+            android:exported="false" />
+        <activity
             android:name=".usersubactivities.DetailServiceInfoActivity"
             android:exported="false" />
         <activity
-            android:name=".usersubactivities.BookingServiceActivity"
+            android:name=".usersubactivities.BookingLichThamActivity"
             android:exported="false" />
         <activity
             android:name=".ListUserActivity.ListUserActivity"

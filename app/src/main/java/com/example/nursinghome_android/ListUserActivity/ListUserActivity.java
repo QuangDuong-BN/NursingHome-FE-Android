@@ -16,7 +16,9 @@ import androidx.appcompat.widget.Toolbar;
 import com.example.nursinghome_android.ListViewSetUp.DropdownAdapter;
 import com.example.nursinghome_android.R;
 import com.example.nursinghome_android.entityDTO.UserItemforListUserDTO;
+import com.example.nursinghome_android.usersubactivities.BookingLichThamActivity;
 import com.example.nursinghome_android.usersubactivities.ListServiceInfoActivity;
+import com.example.nursinghome_android.usersubactivities.MealPlanActivity;
 import com.example.nursinghome_android.valueStatic.BookingInfo;
 import com.example.nursinghome_android.valueStatic.ChooseFuture;
 import com.google.gson.Gson;
@@ -108,9 +110,16 @@ public class ListUserActivity extends AppCompatActivity implements DropdownAdapt
             Intent intent = new Intent(ListUserActivity.this, ListServiceInfoActivity.class);
             startActivity(intent);
         }
-
-
-
+        if (ChooseFuture.chooseFuture.equals("BookingLichTham")) {
+            BookingInfo.userIdFk = id;
+            Intent intent = new Intent(ListUserActivity.this, BookingLichThamActivity.class);
+            startActivity(intent);
+        }
+        if (ChooseFuture.chooseFuture.equals("MealPlan")) {
+            BookingInfo.userIdFk = id;
+            Intent intent = new Intent(ListUserActivity.this, MealPlanActivity.class);
+            startActivity(intent);
+        }
     }
 
     @Override

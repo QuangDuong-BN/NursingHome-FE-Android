@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".usersubactivities.RegisterServiceActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarRegisterService"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Đăng kí dịch vụ"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutDate1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Ngày bắt đầu"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxStrokeColor="@color/green"
+            app:hintTextColor="@color/green">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextProductionDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:padding="12dp"
+                android:textColor="@color/green" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutDate2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Ngày kết thúc"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxStrokeColor="@color/green"
+            app:hintTextColor="@color/green">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextExpirationDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="date"
+                android:padding="12dp"
+                android:textColor="@color/green" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <Spinner
+            android:id="@+id/spinnerRoomType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp" />
+
+        <Spinner
+            android:id="@+id/spinnerRoom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp" />
+
+        <Spinner
+            android:id="@+id/spinnerBed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp" />
+
+        <Button
+            android:id="@+id/buttonRegisterService"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/green"
+            android:layout_margin="30dp"
+            android:text="Đăng kí"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

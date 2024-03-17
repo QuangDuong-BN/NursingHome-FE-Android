@@ -11,10 +11,11 @@ import com.example.nursinghome_android.CustomUI.CustomButton;
 import com.example.nursinghome_android.ListUserActivity.ListUserActivity;
 import com.example.nursinghome_android.R;
 import com.example.nursinghome_android.subactivities.SettingUserActivity;
+import com.example.nursinghome_android.usersubactivities.MealPlanActivity;
 import com.example.nursinghome_android.valueStatic.ChooseFuture;
 
 public class UserActivity extends AppCompatActivity {
-    Button buttonServiceInfo;
+    Button buttonServiceInfo, buttonDatlichTham,buttonThongTinSucKhoe,buttonMealPlan;
     ImageButton buttonSettingUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,13 @@ public class UserActivity extends AppCompatActivity {
             ChooseFuture.chooseFuture= "BookingService";
             startActivity(intent);
         });
+        
+        buttonDatlichTham = findViewById(R.id.buttonDatlichTham);
+        buttonDatlichTham.setOnClickListener(v -> {
+            Intent intent = new Intent(UserActivity.this, ListUserActivity.class);
+            ChooseFuture.chooseFuture= "BookingLichTham";
+            startActivity(intent);
+        });
 
 
         buttonSettingUser = findViewById(R.id.imageViewSetingUser);
@@ -35,8 +43,13 @@ public class UserActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        CustomButton customButton = findViewById(R.id.customButton);
-        customButton.setIcon(R.drawable.iconserviceinfo1);
-        customButton.setLabel("Your Text");
+        buttonMealPlan = findViewById(R.id.buttonMealPlan);
+        buttonMealPlan.setOnClickListener(v -> {
+            Intent intent = new Intent(UserActivity.this, ListUserActivity.class);
+            ChooseFuture.chooseFuture= "MealPlan";
+            startActivity(intent);
+        });
+
+
     }
 }

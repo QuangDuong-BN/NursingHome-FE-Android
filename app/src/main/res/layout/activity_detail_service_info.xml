@@ -24,6 +24,92 @@
             android:layout_gravity="center"/>
 
     </androidx.appcompat.widget.Toolbar>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tên dịch vụ:"
+            android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/textViewNameService"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Đối tượng tham gia:"
+            android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/textViewParticipantDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tiện ích:"
+            android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/textViewAmenities"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chế độ dinh dưỡng:"
+            android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/textViewNutritionMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Chế độ chăm sóc :"
+            android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/textViewCareRegimen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hoạt động cộng đồng:"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/textViewCommunityActivities"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"/>
+
+        <ImageView
+            android:id="@+id/imageViewPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitStart"
+            android:src="@drawable/aaaa" />
+
+        <Button
+            android:id="@+id/buttonRegisterService"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đăng kí ngay"/>
+
+    </LinearLayout>
 
 
 </LinearLayout>

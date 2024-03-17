@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
 
         SharedPreferences prefs1 = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = getSharedPreferences("MyPrefs", MODE_PRIVATE).edit();
-        baseURL = "http://192.168.3.101:8080";
+        baseURL = "http://192.168.43.167:8080";
         editor.putString("baseURL", baseURL);
         editor.apply();
         token = prefs1.getString("token", null);
