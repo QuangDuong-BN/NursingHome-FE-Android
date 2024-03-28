@@ -38,6 +38,8 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.code.gson:gson:2.8.8")
     implementation("com.squareup.okhttp3:okhttp:4.9.0")
+    implementation("androidx.cardview:cardview:1.0.0")
+    implementation("com.caverock:androidsvg:1.4")
     // https://mvnrepository.com/artifact/org.projectlombok/lombok
     compileOnly("org.projectlombok:lombok:1.18.30")
     annotationProcessor("org.projectlombok:lombok:1.18.30")

@@ -46,8 +46,8 @@ public class DropdownAdapterServiceInfo extends ArrayAdapter<ServiceInfoforListS
         ServiceInfoforListServiceInfoDTO item = mData.get(position);
 
         // Thiết lập dữ liệu cho các thành phần giao diện
-        holder.textViewServiceName.setText("Gói: "+item.getName());
-        holder.textViewDescription.setText("Đối tượng: " + item.getDescriptionService());
+        holder.textViewServiceName.setText(item.getName());
+        holder.textViewDescription.setText(item.getDescriptionService());
 
         // Sử dụng Glide để đặt hình ảnh từ URL
         Glide.with(getContext())

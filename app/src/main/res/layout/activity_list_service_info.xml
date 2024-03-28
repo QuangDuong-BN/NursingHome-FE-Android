@@ -28,7 +28,7 @@
 
     <!-- list_item_dropdown.xml -->
     <ListView
-        android:id="@+id/listViewDropdown"
+        android:id="@+id/listViewDropdownServiceInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:divider="@android:color/transparent"

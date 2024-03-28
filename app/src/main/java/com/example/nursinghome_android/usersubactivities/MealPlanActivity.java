@@ -1,52 +1,64 @@
 package com.example.nursinghome_android.usersubactivities;
 
-import static com.example.nursinghome_android.valueStatic.BaseURL.baseURL;
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.DatePicker;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.CalendarView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
-import com.bumptech.glide.Glide;
 import com.example.nursinghome_android.R;
-import com.example.nursinghome_android.valueStatic.BookingInfo;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
 import es.dmoral.toasty.Toasty;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 public class MealPlanActivity extends AppCompatActivity {
-    private DatePicker datePicker;
+    private CalendarView calendarView;
+    private Calendar calendar;
     private TextView mealsTextView;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meal_plan);
 
-        datePicker = findViewById(R.id.datePicker);
-        mealsTextView = findViewById(R.id.mealsTextView);
+        toolbar = findViewById(R.id.toolbarMealPlan);
+        setSupportActionBar(toolbar);
 
-        // Set sự kiện cho DatePicker
-        datePicker.init(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth(),
-                (view, year, monthOfYear, dayOfMonth) -> updateMeals(year, monthOfYear, dayOfMonth));
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowTitleEnabled(false);
+        }
 
-        // Hiển thị thông tin về xuất ăn cho ngày hiện tại khi activity được tạo
-        updateMeals(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth());
+        calendarView = findViewById(R.id.datePicker);
+
+//        mealsTextView = findViewById(R.id.mealsTextView);
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                updateMeals(year, month, dayOfMonth);
+                Toasty.success(MealPlanActivity.this, "Đã chọn ngày " + dayOfMonth + "/" + (month + 1) + "/" + year, Toasty.LENGTH_SHORT).show();
+            }
+        });
+
+        // Get the current date
+        Calendar currentCalendar = Calendar.getInstance();
+        int year = currentCalendar.get(Calendar.YEAR);
+        int month = currentCalendar.get(Calendar.MONTH);
+        int day = currentCalendar.get(Calendar.DAY_OF_MONTH);
+
+        // Update meals for the current date
+        updateMeals(year, month, day);
+
     }
 
     private void updateMeals(int year, int month, int day) {
@@ -110,7 +122,16 @@ public class MealPlanActivity extends AppCompatActivity {
         // Hiển thị thông tin về xuất ăn trong TextView
         String mealsText = "Xuất ăn cho ngày " + selectedDate + ":\n"
                 + "Sáng: Bánh mì, Trưa: Cơm gà, Tối: Canh chua";
-        mealsTextView.setText(mealsText);
+//        mealsTextView.setText(mealsText);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

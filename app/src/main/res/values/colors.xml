@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Màu chính và màu chính tối -->
+    <color name="colorPrimary">#0091c1</color>
+    <color name="colorPrimaryDark">#5861e2</color>
+    <!-- Màu của thanh trạng thái -->
+    <color name="colorPrimaryVariant">#5861e2</color>
+    <!-- Màu sắc cho hành động chính -->
+    <color name="colorAccent">#03DAC5</color>
+
+    <!-- Màu nền của ứng dụng -->
+    <color name="colorBackground">#FFFFFF</color>
+    <!-- Màu nền cho các thành phần (ví dụ: Cards, Sheets) -->
+    <color name="colorSurface">#FFFFFF</color>
+
+    <!-- Màu cho các thông báo -->
+    <color name="colorError">#B00020</color>
+    <!-- Màu văn bản -->
+    <color name="textColorPrimary">#000000</color>
+    <color name="textColorSecondary">#FFFFFF</color>
+
+    <!-- Màu cho các đường viền và phân cách -->
+    <color name="colorOnSurface">#000000</color>
+    <!-- Màu văn bản, biểu tượng trên màu chính, màu sắc tối, màu sắc lỗi -->
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorOnSecondary">#000000</color>
+    <color name="colorOnError">#FFFFFF</color>
     <color name="black">#FF000000</color>
+
     <color name="white">#FFFFFFFF</color>
     <color name="green">#4CAF50</color>
+    <color name="card_bg_color">#F44336</color>
 </resources>

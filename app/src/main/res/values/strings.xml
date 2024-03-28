@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">NursingHome_Android</string>
+    <string name="heading_one">heading_one</string>
+    <string name="heading_two">heading_two</string>
+    <string name="heading_three">heading_three</string>
+    <string name="heading_fourth">heading_fourth</string>
+    <string name="desc_one">desc_one</string>
+    <string name="desc_two">desc_two</string>
+    <string name="desc_three">desc_three</string>
+    <string name="desc_fourth">desc_fourth</string>
 </resources>

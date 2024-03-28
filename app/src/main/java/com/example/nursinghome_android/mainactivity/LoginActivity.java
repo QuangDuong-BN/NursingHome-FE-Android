@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.nursinghome_android.MainActivity;
 import com.example.nursinghome_android.R;
 import com.example.nursinghome_android.enumcustom.RoleUser;
+import com.example.nursinghome_android.valueStatic.BaseURL;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONException;
@@ -38,7 +39,8 @@ public class LoginActivity extends AppCompatActivity {
 
         SharedPreferences prefs1 = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = getSharedPreferences("MyPrefs", MODE_PRIVATE).edit();
-        baseURL = "http://192.168.43.167:8080";
+        baseURL = BaseURL.baseURL;
+        //baseURL = "http://192.168.43.167:8080";
         editor.putString("baseURL", baseURL);
         editor.apply();
         token = prefs1.getString("token", null);

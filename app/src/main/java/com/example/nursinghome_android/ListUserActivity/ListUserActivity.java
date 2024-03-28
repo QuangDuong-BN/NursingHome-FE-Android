@@ -56,7 +56,7 @@ public class ListUserActivity extends AppCompatActivity implements DropdownAdapt
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowTitleEnabled(false);
         }
-        mDropdownListView = findViewById(R.id.listViewDropdown);
+        mDropdownListView = findViewById(R.id.listViewDropdownUser);
 
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         String token = prefs.getString("token", null);

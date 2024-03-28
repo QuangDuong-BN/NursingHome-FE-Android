@@ -14,7 +14,6 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.nursinghome_android.ListUserActivity.ListUserActivity;
 import com.example.nursinghome_android.ListViewSetUp.DropdownAdapterServiceInfo;
 import com.example.nursinghome_android.R;
 import com.example.nursinghome_android.entityDTO.ServiceInfoforListServiceInfoDTO;
@@ -65,7 +64,7 @@ public class ListServiceInfoActivity extends AppCompatActivity implements Dropdo
                 .addHeader("Authorization", "Bearer " + token)
                 .build();
 
-        mDropdownListView = findViewById(R.id.listViewDropdown);
+        mDropdownListView = findViewById(R.id.listViewDropdownServiceInfo);
 
         // Tạo OkHttpClient
         OkHttpClient client = new OkHttpClient();

@@ -17,6 +17,18 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".mainscreen"
+            android:exported="false" />
+        <activity
+            android:name=".mainactivity.SplashScreenActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".usersubactivities.MealPlanActivity"
             android:exported="false" />
         <activity
@@ -30,9 +42,6 @@
             android:exported="false" />
         <activity
             android:name=".ListUserActivity.ListUserActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ListUserActivity.ListUserFromBookingServiceActivity"
             android:exported="false" />
         <activity
             android:name=".subactivities.SettingUserActivity"
@@ -51,13 +60,7 @@
             android:exported="false" />
         <activity
             android:name=".mainactivity.LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true" />

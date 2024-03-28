@@ -1,0 +1,11 @@
+<!-- border_shape.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!-- Đường viền -->
+    <stroke
+        android:width="2dp"
+        android:color="@color/colorPrimary" /> <!-- Thay your_border_color bằng mã màu của bạn -->
+
+    <!-- Bên trong -->
+    <solid android:color="@android:color/transparent" /> <!-- Nếu không muốn có màu nền bên trong, sử dụng transparent -->
+</shape>

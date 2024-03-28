@@ -45,8 +45,8 @@ public class DropdownAdapter extends ArrayAdapter<UserItemforListUserDTO> {
         UserItemforListUserDTO item = mData.get(position);
 
         // Thiết lập dữ liệu cho các thành phần giao diện
-        holder.textViewServiceName.setText("Name"+item.getName());
-        holder.textViewDescription.setText("Quê quán:" + item.getAddress()+"\nGio tinh: ");
+        holder.textViewServiceName.setText(item.getName());
+        holder.textViewDescription.setText(item.getAddress());
 
         Glide.with(getContext())
                 .load(item.getImageUrl())

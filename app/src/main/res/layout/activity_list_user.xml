@@ -17,20 +17,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:text="Danh sách người dùng"
+            android:layout_gravity="center"
+            android:text="Chọn người sử dụng"
             android:textColor="@color/black"
-            android:layout_gravity="center"/>
+            android:textSize="20dp" />
 
     </androidx.appcompat.widget.Toolbar>
 
     <!-- list_item_dropdown.xml -->
     <ListView
-        android:id="@+id/listViewDropdown"
+        android:id="@+id/listViewDropdownUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/list_item_selector"
         android:divider="@android:color/transparent"
-        android:dividerHeight="8dp"
-        android:background="@drawable/list_item_selector"/>
+        android:dividerHeight="8dp" />
 
 </LinearLayout>

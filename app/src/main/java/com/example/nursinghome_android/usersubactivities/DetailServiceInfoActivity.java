@@ -139,5 +139,4 @@ public class DetailServiceInfoActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }
