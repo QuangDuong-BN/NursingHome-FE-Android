@@ -17,6 +17,7 @@ import com.example.nursinghome_android.ListViewSetUp.DropdownAdapter;
 import com.example.nursinghome_android.R;
 import com.example.nursinghome_android.entityDTO.UserItemforListUserDTO;
 import com.example.nursinghome_android.usersubactivities.BookingLichThamActivity;
+import com.example.nursinghome_android.usersubactivities.Healthactivity;
 import com.example.nursinghome_android.usersubactivities.ListServiceInfoActivity;
 import com.example.nursinghome_android.usersubactivities.MealPlanActivity;
 import com.example.nursinghome_android.valueStatic.BookingInfo;
@@ -120,6 +121,13 @@ public class ListUserActivity extends AppCompatActivity implements DropdownAdapt
             Intent intent = new Intent(ListUserActivity.this, MealPlanActivity.class);
             startActivity(intent);
         }
+
+        if (ChooseFuture.chooseFuture.equals("health")) {
+            BookingInfo.userIdFk = id;
+            Intent intent = new Intent(ListUserActivity.this, Healthactivity.class);
+            startActivity(intent);
+        }
+
     }
 
     @Override

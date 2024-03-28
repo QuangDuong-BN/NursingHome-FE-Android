@@ -17,10 +17,10 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     int images[] = {
 
-            R.drawable.breakfast,
-            R.drawable.lunch,
-            R.drawable.dinner,
-            R.drawable.lunch
+            R.drawable.cosovatchat,
+            R.drawable.chedochamsoc,
+            R.drawable.moitruong,
+            R.drawable.vanhoa
 
     };
 

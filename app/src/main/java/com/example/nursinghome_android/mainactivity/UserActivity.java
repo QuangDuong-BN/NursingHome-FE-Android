@@ -50,6 +50,12 @@ public class UserActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        buttonThongTinSucKhoe = findViewById(R.id.buttonThongTinSucKhoe);
+        buttonThongTinSucKhoe.setOnClickListener(v -> {
+            Intent intent = new Intent(UserActivity.this, ListUserActivity.class);
+            ChooseFuture.chooseFuture= "health";
+            startActivity(intent);
+        });
 
     }
 }
