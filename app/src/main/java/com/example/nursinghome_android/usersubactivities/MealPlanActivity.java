@@ -2,14 +2,15 @@ package com.example.nursinghome_android.usersubactivities;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.CalendarView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 
 import com.example.nursinghome_android.R;
 
@@ -23,6 +24,7 @@ public class MealPlanActivity extends AppCompatActivity {
     private CalendarView calendarView;
     private Calendar calendar;
     private TextView mealsTextView;
+    CardView cardViewBreakfast, cardViewLunch, cardViewDinner;
     private Toolbar toolbar;
 
     @Override
@@ -39,6 +41,9 @@ public class MealPlanActivity extends AppCompatActivity {
             actionBar.setDisplayShowTitleEnabled(false);
         }
 
+        cardViewBreakfast = findViewById(R.id.cardViewBreakfast);
+        cardViewLunch = findViewById(R.id.cardViewLunch);
+        cardViewDinner = findViewById(R.id.cardViewDinner);
         calendarView = findViewById(R.id.datePicker);
 
 //        mealsTextView = findViewById(R.id.mealsTextView);
@@ -62,6 +67,10 @@ public class MealPlanActivity extends AppCompatActivity {
     }
 
     private void updateMeals(int year, int month, int day) {
+        cardViewBreakfast.setVisibility(CardView.INVISIBLE);
+        cardViewLunch.setVisibility(CardView.INVISIBLE);
+        cardViewDinner.setVisibility(CardView.INVISIBLE);
+
         // Tạo đối tượng Calendar và thiết lập ngày được chọn
         Calendar calendar = Calendar.getInstance();
         calendar.set(year, month, day);
@@ -123,6 +132,12 @@ public class MealPlanActivity extends AppCompatActivity {
         String mealsText = "Xuất ăn cho ngày " + selectedDate + ":\n"
                 + "Sáng: Bánh mì, Trưa: Cơm gà, Tối: Canh chua";
 //        mealsTextView.setText(mealsText);
+
+        new Handler().postDelayed(() -> {
+            cardViewBreakfast.setVisibility(CardView.VISIBLE);
+            cardViewLunch.setVisibility(CardView.VISIBLE);
+            cardViewDinner.setVisibility(CardView.VISIBLE);
+        }, 100);
     }
 
     @Override

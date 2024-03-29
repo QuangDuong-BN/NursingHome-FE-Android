@@ -13,7 +13,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.nursinghome_android.ListViewSetUp.DropdownAdapter;
+import com.example.nursinghome_android.ListViewSetUp.DropdownAdapterUser;
 import com.example.nursinghome_android.R;
 import com.example.nursinghome_android.entityDTO.UserItemforListUserDTO;
 import com.example.nursinghome_android.usersubactivities.BookingLichThamActivity;
@@ -37,9 +37,9 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class ListUserActivity extends AppCompatActivity implements DropdownAdapter.OnClickListener {
+public class ListUserActivity extends AppCompatActivity implements DropdownAdapterUser.OnClickListener {
     private ListView mDropdownListView;
-    private DropdownAdapter mAdapter;
+    private DropdownAdapterUser mAdapter;
     private List<UserItemforListUserDTO> mDropdownItems = new ArrayList<>();
     ;
     private Toolbar toolbar;
@@ -80,7 +80,7 @@ public class ListUserActivity extends AppCompatActivity implements DropdownAdapt
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            mAdapter = new DropdownAdapter(ListUserActivity.this, mDropdownItems, ListUserActivity.this);
+                            mAdapter = new DropdownAdapterUser(ListUserActivity.this, mDropdownItems, ListUserActivity.this);
                             mDropdownListView.setAdapter(mAdapter);
 //                            Toasty.success(ListUserActivity.this, result, Toasty.LENGTH_SHORT).show();
                         }

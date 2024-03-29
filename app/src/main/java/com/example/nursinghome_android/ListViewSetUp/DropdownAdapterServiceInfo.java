@@ -10,6 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.nursinghome_android.R;
 import com.example.nursinghome_android.entityDTO.ServiceInfoforListServiceInfoDTO;
 
@@ -32,7 +35,7 @@ public class DropdownAdapterServiceInfo extends ArrayAdapter<ServiceInfoforListS
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.list_item_dropdown, parent, false);
+            convertView = mInflater.inflate(R.layout.list_item_dropdown_serviceinfo, parent, false);
             holder = new ViewHolder();
             holder.imageViewIcon = convertView.findViewById(R.id.imageViewIcon);
             holder.textViewServiceName = convertView.findViewById(R.id.tvServiceName);
@@ -52,6 +55,7 @@ public class DropdownAdapterServiceInfo extends ArrayAdapter<ServiceInfoforListS
         // Sử dụng Glide để đặt hình ảnh từ URL
         Glide.with(getContext())
                 .load(item.getImageUrlIcon())
+                .apply(new RequestOptions().transform(new CenterCrop(), new RoundedCorners(12)))
                 .into(holder.imageViewIcon);
         // Gắn OnClickListener cho convertView
         convertView.setOnClickListener(new View.OnClickListener() {

@@ -9,10 +9,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.nursinghome_android.MainActivity;
 import com.example.nursinghome_android.R;
 import com.example.nursinghome_android.enumcustom.RoleUser;
 import com.example.nursinghome_android.valueStatic.BaseURL;
+import com.example.nursinghome_android.valueStatic.UserInfoStatic;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONException;
@@ -69,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
             OkHttpClient client = new OkHttpClient();
 
             Request request = new Request.Builder()
-                    .url(baseURL +"/user/get_user")
+                    .url(baseURL + "/user/get_user")
                     .addHeader("Authorization", "Bearer " + token)
                     .build();
 
@@ -159,6 +159,13 @@ public class LoginActivity extends AppCompatActivity {
                     JSONObject jsonObject = null;
                     try {
                         jsonObject = new JSONObject(response.body().string());
+
+                        // lay thong tin
+                        UserInfoStatic.name = jsonObject.getString("name");
+                        UserInfoStatic.email = jsonObject.getString("email");
+                        UserInfoStatic.phone = jsonObject.getString("phone");
+                        UserInfoStatic.role = jsonObject.getString("role");
+
                         String token = jsonObject.getString("token");
                         RoleUser roleUser = RoleUser.valueOf(jsonObject.getString("role"));
                         SharedPreferences.Editor editor = getSharedPreferences("MyPrefs", MODE_PRIVATE).edit();
@@ -184,7 +191,7 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent);
                             finish();
                         } else if (roleUser.equals(RoleUser.ADMIN)) {
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, UserActivity.class);
                             startActivity(intent);
                             finish();
                         }

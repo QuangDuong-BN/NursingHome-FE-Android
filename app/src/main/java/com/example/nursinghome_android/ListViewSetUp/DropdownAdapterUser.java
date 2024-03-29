@@ -9,18 +9,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.nursinghome_android.R;
 import com.example.nursinghome_android.entityDTO.UserItemforListUserDTO;
 
 import java.util.List;
 
-public class DropdownAdapter extends ArrayAdapter<UserItemforListUserDTO> {
+public class DropdownAdapterUser extends ArrayAdapter<UserItemforListUserDTO> {
 
     private LayoutInflater mInflater;
     private List<UserItemforListUserDTO> mData;
     private OnClickListener mClickListener;
 
-    public DropdownAdapter(Context context, List<UserItemforListUserDTO> data, OnClickListener clickListener) {
+    public DropdownAdapterUser(Context context, List<UserItemforListUserDTO> data, OnClickListener clickListener) {
         super(context, R.layout.list_item_dropdown, data);
         mInflater = LayoutInflater.from(context);
         mData = data;
@@ -50,6 +53,7 @@ public class DropdownAdapter extends ArrayAdapter<UserItemforListUserDTO> {
 
         Glide.with(getContext())
                 .load(item.getImageUrl())
+                .apply(new RequestOptions().transform(new CenterCrop(), new RoundedCorners(12)))
                 .into(holder.imageViewIcon);
 
         // Gắn OnClickListener cho convertView
