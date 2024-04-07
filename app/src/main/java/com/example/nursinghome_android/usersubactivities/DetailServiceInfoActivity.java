@@ -38,7 +38,7 @@ public class DetailServiceInfoActivity extends AppCompatActivity {
     String result;
     Button buttonRegisterService;
 
-    TextView textViewName, textViewAmenities, textViewNutritionMode, textViewCommunityActivities, textViewCareRegimen;
+    TextView textViewName, textViewAmenities, textViewNutritionMode, textViewCommunityActivities, textViewCareRegimen, textViewParticipantDetails;
     ImageView imageViewPrice;
 
     @Override
@@ -92,7 +92,9 @@ public class DetailServiceInfoActivity extends AppCompatActivity {
                             String communityActivities = jsonResponse.getString("communityActivities");
                             String careRegimen = jsonResponse.getString("careRegimen");
                             String stringimageurl = jsonResponse.getString("imageUrlPrice");
+                            String participantDetails = jsonResponse.getString("participantDetails");
 
+                            textViewParticipantDetails = findViewById(R.id.textViewParticipantDetails);
                             textViewName = findViewById(R.id.textViewNameService);
                             textViewAmenities = findViewById(R.id.textViewAmenities);
                             textViewNutritionMode = findViewById(R.id.textViewNutritionMode);
@@ -100,6 +102,7 @@ public class DetailServiceInfoActivity extends AppCompatActivity {
                             textViewCareRegimen = findViewById(R.id.textViewCareRegimen);
                             imageViewPrice = findViewById(R.id.imageViewPrice);
 
+                            textViewParticipantDetails.setText(participantDetails);
                             textViewName.setText(name);
                             textViewAmenities.setText(amenities);
                             textViewNutritionMode.setText(nutritionMode);

@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.nursinghome_android.MainMainActivity;
 import com.example.nursinghome_android.R;
 import com.example.nursinghome_android.enumcustom.RoleUser;
 import com.example.nursinghome_android.valueStatic.BaseURL;
@@ -39,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
 
         SharedPreferences prefs1 = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = getSharedPreferences("MyPrefs", MODE_PRIVATE).edit();
+
         baseURL = BaseURL.baseURL;
         //baseURL = "http://192.168.43.167:8080";
         editor.putString("baseURL", baseURL);
@@ -86,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
                         JSONObject jsonResponse = new JSONObject(responseData);
                         RoleUser roleUser = RoleUser.valueOf(jsonResponse.getString("role"));
                         if (roleUser.equals(RoleUser.FAMILY_MEMBER)) {
-                            Intent intent = new Intent(LoginActivity.this, UserActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, MainMainActivity.class);
                             startActivity(intent);
                             finish();
                         } else if (roleUser.equals(RoleUser.DOCTOR) || roleUser.equals(RoleUser.NURSE)) {
@@ -160,17 +162,27 @@ public class LoginActivity extends AppCompatActivity {
                     try {
                         jsonObject = new JSONObject(response.body().string());
 
-                        // lay thong tin
-                        UserInfoStatic.name = jsonObject.getString("name");
-                        UserInfoStatic.email = jsonObject.getString("email");
-                        UserInfoStatic.phone = jsonObject.getString("phone");
-                        UserInfoStatic.role = jsonObject.getString("role");
+                        SharedPreferences.Editor editor = getSharedPreferences("MyPrefs", MODE_PRIVATE).edit();
+
+                        editor.putString("name", jsonObject.getString("name"));
+                        editor.putString("email", jsonObject.getString("email"));
+                        editor.putString("phone", jsonObject.getString("phone"));
+                        editor.putString("role", jsonObject.getString("role"));
+                        editor.putString("address", jsonObject.getString("address"));
+
+                        editor.apply();
+
+//                        // lay thong tin
+//                        UserInfoStatic.name = jsonObject.getString("name");
+//                        UserInfoStatic.email = jsonObject.getString("email");
+//                        UserInfoStatic.phone = jsonObject.getString("phone");
+//                        UserInfoStatic.role = jsonObject.getString("role");
 
                         String token = jsonObject.getString("token");
                         RoleUser roleUser = RoleUser.valueOf(jsonObject.getString("role"));
-                        SharedPreferences.Editor editor = getSharedPreferences("MyPrefs", MODE_PRIVATE).edit();
-                        editor.putString("token", token);
-                        editor.apply();
+                        SharedPreferences.Editor editor2 = getSharedPreferences("MyPrefs", MODE_PRIVATE).edit();
+                        editor2.putString("token", token);
+                        editor2.apply();
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -179,7 +191,7 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         });
                         if (roleUser.equals(RoleUser.FAMILY_MEMBER)) {
-                            Intent intent = new Intent(LoginActivity.this, UserActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, MainMainActivity.class);
                             startActivity(intent);
                             finish();
                         } else if (roleUser.equals(RoleUser.DOCTOR) || roleUser.equals(RoleUser.NURSE)) {

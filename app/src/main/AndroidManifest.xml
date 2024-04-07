@@ -17,6 +17,21 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".stremchat.StremChatMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".stremchat.MainStremChat"
+            android:exported="false" />
+        <activity
+            android:name=".stremchat.ChannelListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".stremchat.ChatApplication"
+            android:exported="false" />
+        <activity
+            android:name=".MainMainActivity"
+            android:exported="false" />
+        <activity
             android:name=".usersubactivities.Healthactivity"
             android:exported="false" />
         <activity
