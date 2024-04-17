@@ -4,6 +4,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="29"
+        tools:replace="android:maxSdkVersion" />
 
     <application
         android:allowBackup="true"
@@ -17,26 +20,24 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".stremchat.StremChatMainActivity"
+            android:name=".chatrealtime.ConversationActivity"
             android:exported="false" />
         <activity
-            android:name=".stremchat.MainStremChat"
+            android:name=".chatrealtime.MyZIMKitActivity"
             android:exported="false" />
         <activity
-            android:name=".stremchat.ChannelListActivity"
-            android:exported="false" />
-        <activity
-            android:name=".stremchat.ChatApplication"
-            android:exported="false" />
+            android:name=".chatrealtime.ChatMainActivity"
+            android:exported="true" >
+
+        </activity>
+
         <activity
             android:name=".MainMainActivity"
             android:exported="false" />
         <activity
             android:name=".usersubactivities.Healthactivity"
             android:exported="false" />
-        <activity
-            android:name=".mainscreen"
-            android:exported="false" />
+
         <activity
             android:name=".mainactivity.SplashScreenActivity"
             android:exported="true">
@@ -45,6 +46,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".usersubactivities.MealPlanActivity"

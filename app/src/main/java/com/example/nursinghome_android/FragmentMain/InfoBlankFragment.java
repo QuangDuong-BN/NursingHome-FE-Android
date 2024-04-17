@@ -1,13 +1,18 @@
 package com.example.nursinghome_android.FragmentMain;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.nursinghome_android.R;
+import com.example.nursinghome_android.chatrealtime.MyZIMKitActivity;
+import com.zegocloud.zimkit.common.ZIMKitRouter;
+import com.zegocloud.zimkit.common.enums.ZIMKitConversationType;
 
 
 /**
@@ -61,6 +66,14 @@ public class InfoBlankFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_info_blank, container, false);
+        View view = inflater.inflate(R.layout.fragment_info_blank, container, false);
+        Button button = view.findViewById(R.id.NhanTin);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), MyZIMKitActivity.class));
+            }
+        });
+        return view;
     }
 }

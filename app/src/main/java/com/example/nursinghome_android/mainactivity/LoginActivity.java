@@ -15,6 +15,7 @@ import com.example.nursinghome_android.enumcustom.RoleUser;
 import com.example.nursinghome_android.valueStatic.BaseURL;
 import com.example.nursinghome_android.valueStatic.UserInfoStatic;
 import com.google.android.material.textfield.TextInputEditText;
+import com.zegocloud.zimkit.services.ZIMKit;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,6 +38,11 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Long appId = 1643629424L;    // The AppID you get from ZEGOCLOUD Admin Console.
+        String appSign = "f648f9982a76de835b9a988cad8621e4c88a7a6cdf9bf36694dfb55bd684fe6c" ;    // The App Sign you get from ZEGOCLOUD Admin Console.
+        ZIMKit.initWith(getApplication(),appId,appSign);
+        // Online notification for the initialization (use the following code if this is needed).
+        ZIMKit.initNotifications();
 
         SharedPreferences prefs1 = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = getSharedPreferences("MyPrefs", MODE_PRIVATE).edit();
@@ -172,11 +178,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         editor.apply();
 
-//                        // lay thong tin
-//                        UserInfoStatic.name = jsonObject.getString("name");
-//                        UserInfoStatic.email = jsonObject.getString("email");
-//                        UserInfoStatic.phone = jsonObject.getString("phone");
-//                        UserInfoStatic.role = jsonObject.getString("role");
+//
 
                         String token = jsonObject.getString("token");
                         RoleUser roleUser = RoleUser.valueOf(jsonObject.getString("role"));

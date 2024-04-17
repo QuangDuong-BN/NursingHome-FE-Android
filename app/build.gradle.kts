@@ -32,8 +32,9 @@ android {
     }
     // Enable ViewBinding
     buildFeatures {
-        viewBinding = true
+        dataBinding = true
     }
+
 }
 
 dependencies {
@@ -57,12 +58,14 @@ dependencies {
 
     // setup strem chat
     // Add new dependencies
-    implementation ("io.getstream:stream-chat-android-ui-components:6.0.2")
-    implementation ("io.getstream:stream-chat-android-offline:6.0.2")
+
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation ("com.google.android.material:material:1.9.0")
     implementation ("androidx.activity:activity-ktx:1.7.2")
     implementation ("io.coil-kt:coil:2.4.0")
+
+
+    implementation("com.github.ZEGOCLOUD:zego_inapp_chat_uikit_android:+")
 
      //
     implementation("com.github.ibrahimsn98:SmoothBottomBar:1.7.9")

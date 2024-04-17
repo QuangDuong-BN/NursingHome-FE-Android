@@ -45,8 +45,6 @@ public class SettingUserActivity extends AppCompatActivity {
 
             startActivity(intent);
             finish();
-
-
         });
     }
 }
