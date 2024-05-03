@@ -53,6 +53,7 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.12.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
 
+
     //
     implementation("de.hdodenhof:circleimageview:3.1.0")
 
@@ -66,6 +67,8 @@ dependencies {
 
 
     implementation("com.github.ZEGOCLOUD:zego_inapp_chat_uikit_android:+")
+
+    implementation("com.github.ZEGOCLOUD:zego_uikit_prebuilt_call_android:+")
 
      //
     implementation("com.github.ibrahimsn98:SmoothBottomBar:1.7.9")

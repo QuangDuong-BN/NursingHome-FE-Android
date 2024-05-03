@@ -7,10 +7,20 @@
     android:orientation="vertical"
     tools:context=".mainactivity.DocterAndNurseActivity">
 
-    <TextView
+    <FrameLayout
+        android:id="@+id/Fragment_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="CookAndCleanerActivity" />
+        android:layout_height="match_parent"
+
+        android:layout_weight="1" />
+
+    <me.ibrahimsn.lib.SmoothBottomBar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:layout_weight="1"
+        app:backgroundColor="@color/colorPrimary"
+        app:iconSize="24dp"
+        app:cornerRadius="4dp"
+        app:menu="@menu/menu_2" />
 </LinearLayout>

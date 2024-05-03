@@ -8,5 +8,7 @@
     <string name="desc_two">Chế độ chăm sóc khao học </string>
     <string name="desc_three">Môi trường trong lành</string>
     <string name="desc_fourth">Cán bộ công nhân viên tận tình</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

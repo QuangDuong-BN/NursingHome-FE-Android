@@ -175,6 +175,7 @@ public class LoginActivity extends AppCompatActivity {
                         editor.putString("phone", jsonObject.getString("phone"));
                         editor.putString("role", jsonObject.getString("role"));
                         editor.putString("address", jsonObject.getString("address"));
+                        editor.putString("imageUrl", jsonObject.getString("imageUrl"));
 
                         editor.apply();
 

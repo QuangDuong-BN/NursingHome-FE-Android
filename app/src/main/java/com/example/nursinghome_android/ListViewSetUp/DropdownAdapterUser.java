@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.nursinghome_android.R;
@@ -54,6 +55,7 @@ public class DropdownAdapterUser extends ArrayAdapter<UserItemforListUserDTO> {
         Glide.with(getContext())
                 .load(item.getImageUrl())
                 .apply(new RequestOptions().transform(new CenterCrop(), new RoundedCorners(12)))
+//                .apply(new RequestOptions().transform(new CenterCrop(), new CircleCrop()))
                 .into(holder.imageViewIcon);
 
         // Gắn OnClickListener cho convertView

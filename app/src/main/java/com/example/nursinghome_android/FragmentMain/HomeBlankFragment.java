@@ -14,13 +14,14 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.nursinghome_android.ListUserActivity.ListUserActivity;
 import com.example.nursinghome_android.R;
-import com.example.nursinghome_android.mainactivity.UserActivity;
 import com.example.nursinghome_android.subactivities.SettingUserActivity;
-import com.example.nursinghome_android.valueStatic.BaseURL;
 import com.example.nursinghome_android.valueStatic.ChooseFuture;
-import com.example.nursinghome_android.valueStatic.UserInfoStatic;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -40,7 +41,7 @@ public class HomeBlankFragment extends Fragment {
 
     Button buttonServiceInfo, buttonDatlichTham, buttonThongTinSucKhoe, buttonMealPlan;
     ImageButton buttonSettingUser;
-    TextView textViewUserName,textViewUserAddress;
+    TextView textViewUserName, textViewUserAddress;
 
     public HomeBlankFragment() {
         // Required empty public constructor
@@ -71,8 +72,6 @@ public class HomeBlankFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-
     }
 
     @Override
@@ -80,17 +79,25 @@ public class HomeBlankFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home_blank, container, false);
+        buttonSettingUser = view.findViewById(R.id.imageViewSetingUser);
 
 
         SharedPreferences prefs1 = getActivity().getSharedPreferences("MyPrefs", MODE_PRIVATE);
 
-        String name = prefs1.getString("name", null);
+        String name = prefs1.getString("name", "@drawable/chandung1");
         textViewUserName = view.findViewById(R.id.textViewUserName);
         textViewUserName.setText("Xin chào, " + name);
 
         String address = prefs1.getString("address", null);
         textViewUserAddress = view.findViewById(R.id.textViewUserAddress);
         textViewUserAddress.setText(address);
+
+        String imageUrl = prefs1.getString("imageUrl", null);
+
+        Glide.with(this)
+                .load(imageUrl)
+                .apply(new RequestOptions().transform(new CenterCrop(), new CircleCrop()))
+                .into(buttonSettingUser);
 
         buttonServiceInfo = view.findViewById(R.id.buttonServiceInfo);
         buttonServiceInfo.setOnClickListener(v -> {
@@ -106,7 +113,6 @@ public class HomeBlankFragment extends Fragment {
             startActivity(intent);
         });
 
-        buttonSettingUser = view.findViewById(R.id.imageViewSetingUser);
         buttonSettingUser.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), SettingUserActivity.class);
             startActivity(intent);
