@@ -10,13 +10,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.nursinghome_android.ListUserActivity.ListUserActivity;
 import com.example.nursinghome_android.R;
@@ -81,7 +84,6 @@ public class HomeBlankFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home_blank, container, false);
         buttonSettingUser = view.findViewById(R.id.imageViewSetingUser);
 
-
         SharedPreferences prefs1 = getActivity().getSharedPreferences("MyPrefs", MODE_PRIVATE);
 
         String name = prefs1.getString("name", "@drawable/chandung1");
@@ -99,38 +101,45 @@ public class HomeBlankFragment extends Fragment {
                 .apply(new RequestOptions().transform(new CenterCrop(), new CircleCrop()))
                 .into(buttonSettingUser);
 
-        buttonServiceInfo = view.findViewById(R.id.buttonServiceInfo);
-        buttonServiceInfo.setOnClickListener(v -> {
+
+        CardView cardView = view.findViewById(R.id.cardViewServiceInfo);
+        cardView.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), ListUserActivity.class);
             ChooseFuture.chooseFuture = "BookingService";
             startActivity(intent);
         });
 
-        buttonDatlichTham = view.findViewById(R.id.buttonDatlichTham);
-        buttonDatlichTham.setOnClickListener(v -> {
+        ImageView imageView = view.findViewById(R.id.imageServiceInfo);
+        Glide.with(getContext())
+                .load("https://res.cloudinary.com/djq4zsauv/image/upload/v1714754081/x5bpah2an8yickjix0kh.png")
+                .apply(new RequestOptions().transform(new CenterCrop(), new RoundedCorners(12)))
+                .into(imageView);
+
+        CardView cardView1 = view.findViewById(R.id.cardViewDatlichTham);
+        cardView1.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), ListUserActivity.class);
             ChooseFuture.chooseFuture = "BookingLichTham";
             startActivity(intent);
         });
 
-        buttonSettingUser.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), SettingUserActivity.class);
-            startActivity(intent);
-        });
+        ImageView imageView1 = view.findViewById(R.id.imageDatlichTham);
+        Glide.with(getContext())
+                .load("https://res.cloudinary.com/djq4zsauv/image/upload/v1714755039/enmgpxmhaxytyzrfqrud.png")
+                .apply(new RequestOptions().transform(new CenterCrop(), new RoundedCorners(12)))
+                .into(imageView1);
 
-        buttonMealPlan = view.findViewById(R.id.buttonMealPlan);
-        buttonMealPlan.setOnClickListener(v -> {
-            Intent intent = new Intent(getActivity(), ListUserActivity.class);
-            ChooseFuture.chooseFuture = "MealPlan";
-            startActivity(intent);
-        });
-
-        buttonThongTinSucKhoe = view.findViewById(R.id.buttonThongTinSucKhoe);
-        buttonThongTinSucKhoe.setOnClickListener(v -> {
+        CardView cardView2 = view.findViewById(R.id.cardViewTheoDoiSucKhoe);
+        cardView2.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), ListUserActivity.class);
             ChooseFuture.chooseFuture = "health";
             startActivity(intent);
         });
+
+        ImageView imageView2 = view.findViewById(R.id.imageTheoDoiSucKhoe);
+        Glide.with(getContext())
+                .load("https://res.cloudinary.com/djq4zsauv/image/upload/v1714756033/j9gqy3vhaygsesqn9xeq.png")
+                .apply(new RequestOptions().transform(new CenterCrop(), new RoundedCorners(12)))
+                .into(imageView2);
 
         return view;
     }

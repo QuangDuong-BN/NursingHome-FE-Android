@@ -4,8 +4,10 @@ import static com.example.nursinghome_android.valueStatic.BaseURL.baseURL;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.Window;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
@@ -15,8 +17,10 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.nursinghome_android.ListViewSetUp.DropdownAdapterUser;
 import com.example.nursinghome_android.R;
+import com.example.nursinghome_android.config.LoadingDialog;
 import com.example.nursinghome_android.entityDTO.UserItemforListUserDTO;
 import com.example.nursinghome_android.usersubactivities.BookingLichThamActivity;
+import com.example.nursinghome_android.usersubactivities.ChooseHealtyOrMealPlan;
 import com.example.nursinghome_android.usersubactivities.Healthactivity;
 import com.example.nursinghome_android.usersubactivities.ListServiceInfoActivity;
 import com.example.nursinghome_android.usersubactivities.MealPlanActivity;
@@ -56,9 +60,15 @@ public class ListUserActivity extends AppCompatActivity implements DropdownAdapt
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowTitleEnabled(false);
+            Drawable upArrow = getResources().getDrawable(R.drawable.ic_arrow_back);
+            actionBar.setHomeAsUpIndicator(upArrow);
         }
         mDropdownListView = findViewById(R.id.listViewDropdownUser);
+        Window window = getWindow();
+        window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
 
+        LoadingDialog loadingDialog = new LoadingDialog(ListUserActivity.this);
+        loadingDialog.startLoadingDialog();
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         String token = prefs.getString("token", null);
 
@@ -94,18 +104,18 @@ public class ListUserActivity extends AppCompatActivity implements DropdownAdapt
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toasty.success(ListUserActivity.this, "flase", Toasty.LENGTH_SHORT).show();
+                        Toasty.error(ListUserActivity.this, "Kết nối thất bại", Toasty.LENGTH_SHORT).show();
                     }
                 });
             }
         });
-
+        loadingDialog.dismissDialog();
     }
 
     @Override
     public void onItemClick(Long id) {
         // Xử lý sự kiện khi một mục được nhấn
-        Toasty.info(this, "Clicked on item: " + id, Toasty.LENGTH_SHORT).show();
+//        Toasty.info(this, "Clicked on item: " + id, Toasty.LENGTH_SHORT).show();
         if (ChooseFuture.chooseFuture.equals("BookingService")) {
             BookingInfo.userIdFk = id;
             Intent intent = new Intent(ListUserActivity.this, ListServiceInfoActivity.class);
@@ -124,7 +134,7 @@ public class ListUserActivity extends AppCompatActivity implements DropdownAdapt
 
         if (ChooseFuture.chooseFuture.equals("health")) {
             BookingInfo.userIdFk = id;
-            Intent intent = new Intent(ListUserActivity.this, Healthactivity.class);
+            Intent intent = new Intent(ListUserActivity.this, ChooseHealtyOrMealPlan.class);
             startActivity(intent);
         }
 

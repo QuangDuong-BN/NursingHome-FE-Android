@@ -3,6 +3,7 @@ package com.example.nursinghome_android.mainactivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -11,9 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.nursinghome_android.MainMainActivity;
 import com.example.nursinghome_android.R;
+import com.example.nursinghome_android.config.LoadingDialog;
 import com.example.nursinghome_android.enumcustom.RoleUser;
 import com.example.nursinghome_android.valueStatic.BaseURL;
-import com.example.nursinghome_android.valueStatic.UserInfoStatic;
 import com.google.android.material.textfield.TextInputEditText;
 import com.zegocloud.zimkit.services.ZIMKit;
 
@@ -39,8 +40,8 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Long appId = 1643629424L;    // The AppID you get from ZEGOCLOUD Admin Console.
-        String appSign = "f648f9982a76de835b9a988cad8621e4c88a7a6cdf9bf36694dfb55bd684fe6c" ;    // The App Sign you get from ZEGOCLOUD Admin Console.
-        ZIMKit.initWith(getApplication(),appId,appSign);
+        String appSign = "f648f9982a76de835b9a988cad8621e4c88a7a6cdf9bf36694dfb55bd684fe6c";    // The App Sign you get from ZEGOCLOUD Admin Console.
+        ZIMKit.initWith(getApplication(), appId, appSign);
         // Online notification for the initialization (use the following code if this is needed).
         ZIMKit.initNotifications();
 
@@ -54,6 +55,16 @@ public class LoginActivity extends AppCompatActivity {
         token = prefs1.getString("token", null);
         // check thong tin dang nhap
         checkTokenAndRoleUser();
+
+        LoadingDialog loadingDialog = new LoadingDialog(LoginActivity.this);
+        loadingDialog.startLoadingDialog();
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                loadingDialog.dismissDialog();
+            }
+        }, 2000);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -106,7 +117,7 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent);
                             finish();
                         } else if (roleUser.equals(RoleUser.ADMIN)) {
-                            Intent intent = new Intent(LoginActivity.this, UserActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, MainMainActivity.class);
                             startActivity(intent);
                             finish();
                         }
@@ -206,7 +217,7 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(intent);
                             finish();
                         } else if (roleUser.equals(RoleUser.ADMIN)) {
-                            Intent intent = new Intent(LoginActivity.this, UserActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, MainMainActivity.class);
                             startActivity(intent);
                             finish();
                         }

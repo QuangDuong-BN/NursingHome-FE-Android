@@ -8,9 +8,9 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.nursinghome_android.MainMainActivity;
 import com.example.nursinghome_android.R;
 import com.example.nursinghome_android.mainactivity.LoginActivity;
-import com.example.nursinghome_android.mainactivity.UserActivity;
 import com.example.nursinghome_android.valueStatic.UserInfoStatic;
 
 public class SettingUserActivity extends AppCompatActivity {
@@ -23,7 +23,7 @@ public class SettingUserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_setting_user);
         buttonBack = findViewById(R.id.imageViewBackUserFromSetting);
         buttonBack.setOnClickListener(v -> {
-            Intent intent = new Intent(SettingUserActivity.this, UserActivity.class);
+            Intent intent = new Intent(SettingUserActivity.this, MainMainActivity.class);
             startActivity(intent);
             finish();
 

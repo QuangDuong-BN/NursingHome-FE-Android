@@ -10,7 +10,7 @@
         android:id="@+id/toolbarListUser"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/white"
+        android:background="@color/colorPrimary"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
 
@@ -18,8 +18,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Chọn người sử dụng"
-            android:textColor="@color/black"
+            android:text="Danh sách người dùng"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textColorHint="@color/white"
             android:textSize="20dp" />
 
     </androidx.appcompat.widget.Toolbar>

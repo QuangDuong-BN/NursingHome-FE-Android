@@ -28,11 +28,11 @@ public class ConversationActivity extends AppCompatActivity {
 
         Long appID = 949308766L;   // yourAppID
         String appSign ="ed672560f0c6413248f865b7adf9b5bc15c871f6f6a63cfb8bdb4254bd8f484f";  // yourAppSign
-//        String userID ="duong123"; // yourUserID, userID should only contain numbers, English characters, and '_'.
-//        String userName ="Quang Duong";   // yourUserName
+        String userID ="duong123"; // yourUserID, userID should only contain numbers, English characters, and '_'.
+        String userName ="Quang Duong";   // yourUserName
 
-        String userID = "bacsi1"; // Your ID as a user.
-        String userName = " Bs Dũng"; // You name as a user.
+//        String userID = "bacsi1"; // Your ID as a user.
+//        String userName = " Bs Dũng"; // You name as a user.
 
         ZegoUIKitPrebuiltCallInvitationConfig callInvitationConfig = new ZegoUIKitPrebuiltCallInvitationConfig();
         ZegoUIKitPrebuiltCallInvitationService.init(getApplication(), appID, appSign, userID, userName, callInvitationConfig);
@@ -57,7 +57,7 @@ public class ConversationActivity extends AppCompatActivity {
             }
         });
 
-        startSingleChat("duong123");
+        startSingleChat("bacsi1");
     }
     private void startSingleChat(String userId){
 

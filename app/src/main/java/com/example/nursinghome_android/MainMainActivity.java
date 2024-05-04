@@ -25,10 +25,11 @@ public class MainMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_main);
 
         Window window = getWindow();
+        window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            window.setStatusBarColor(getResources().getColor(R.color.white));
+//        }
         rePlace(new HomeBlankFragment());
         smoothBottomBar = findViewById(R.id.bottomBar);
         smoothBottomBar.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -40,12 +41,16 @@ public class MainMainActivity extends AppCompatActivity {
                         break;
                     case 1:
                         rePlace(new InfoBlankFragment());
+                        window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
                         break;
                     case 2:
                         rePlace(new NotiBlankFragment());
+                        window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
+
                         break;
                     case 3:
                         rePlace(new SettingBlankFragment());
+                        window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
                         break;
                 }
                 return false;

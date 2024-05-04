@@ -1,9 +1,11 @@
 package com.example.nursinghome_android.usersubactivities;
 
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MenuItem;
+import android.view.Window;
 import android.widget.CalendarView;
 import android.widget.TextView;
 
@@ -39,7 +41,12 @@ public class MealPlanActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowTitleEnabled(false);
+            Drawable upArrow = getResources().getDrawable(R.drawable.ic_arrow_back);
+            actionBar.setHomeAsUpIndicator(upArrow);
         }
+
+        Window window = getWindow();
+        window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
 
         cardViewBreakfast = findViewById(R.id.cardViewBreakfast);
         cardViewLunch = findViewById(R.id.cardViewLunch);

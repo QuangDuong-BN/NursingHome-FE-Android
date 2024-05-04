@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
@@ -16,6 +17,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.nursinghome_android.ListViewSetUp.DropdownAdapterServiceInfo;
 import com.example.nursinghome_android.R;
+import com.example.nursinghome_android.config.LoadingDialog;
 import com.example.nursinghome_android.entityDTO.ServiceInfoforListServiceInfoDTO;
 import com.example.nursinghome_android.valueStatic.BookingInfo;
 import com.google.gson.Gson;
@@ -54,6 +56,11 @@ public class ListServiceInfoActivity extends AppCompatActivity implements Dropdo
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowTitleEnabled(false);
         }
+        Window window = getWindow();
+        window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
+
+        LoadingDialog loadingDialog = new LoadingDialog(ListServiceInfoActivity.this);
+        loadingDialog.startLoadingDialog();
 
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         String token = prefs.getString("token", null);
@@ -85,17 +92,18 @@ public class ListServiceInfoActivity extends AppCompatActivity implements Dropdo
 
                 }
             }
+
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toasty.success(ListServiceInfoActivity.this, "flase", Toasty.LENGTH_SHORT).show();
+                        Toasty.error(ListServiceInfoActivity.this, "Kết nối thất bại!", Toasty.LENGTH_SHORT).show();
                     }
                 });
             }
         });
-
+        loadingDialog.dismissDialog();
     }
 
     @Override

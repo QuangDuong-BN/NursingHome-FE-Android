@@ -31,24 +31,21 @@ public class MyZIMKitActivity extends AppCompatActivity {
         inputConfig.showEmojiButton = true;
         inputConfig.showAddButton = true;
 
-
         ZIMKit.setInputConfig(inputConfig);
         buttonClick();
-
-
 
     }
 
     public void buttonClick() {
         // userId and userName: 1 to 32 characters, can only contain digits, letters, and the following special characters: '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '=', '-', '`', ';', '’', ',', '.', '<', '>', '/', '\'
-        String userId = "bacsi1"; // Your ID as a user.
-        String userName = " Bs Dũng"; // You name as a user.
-        String userAvatar ="https://afamilycdn.com/150157425591193600/2023/2/24/ltt5998090128-01-16770559389571071835014-1677222250874-16772222511521048969129.jpg"; // The image you set as the user avatar must be network image. e.g., https://storage.zego.im/IMKit/avatar/avatar-0.png
-        connectUser(userId, userName,userAvatar);
+//        String userId = "bacsi1"; // Your ID as a user.
+//        String userName = " Bs Dũng"; // You name as a user.
+//        String userAvatar ="https://afamilycdn.com/150157425591193600/2023/2/24/ltt5998090128-01-16770559389571071835014-1677222250874-16772222511521048969129.jpg"; // The image you set as the user avatar must be network image. e.g., https://storage.zego.im/IMKit/avatar/avatar-0.png
+//        connectUser(userId, userName,userAvatar);
 
-//        String userId = "duong123"; // Your ID as a user.
-//        String userName = "Quang Dương"; // You name as a user.
-//        String userAvatar ="http://res.cloudinary.com/djq4zsauv/image/upload/v1712820969/uep2jhlyf4ykelacyngh.png";
+        String userId = "duong123"; // Your ID as a user.
+        String userName = "Quang Dương"; // You name as a user.
+        String userAvatar ="http://res.cloudinary.com/djq4zsauv/image/upload/v1712820969/uep2jhlyf4ykelacyngh.png";
         connectUser(userId, userName,userAvatar);
     }
 
