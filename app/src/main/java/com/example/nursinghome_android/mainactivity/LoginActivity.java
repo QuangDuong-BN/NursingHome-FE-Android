@@ -23,6 +23,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
+import es.dmoral.toasty.Toasty;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.MediaType;
@@ -37,13 +38,14 @@ public class LoginActivity extends AppCompatActivity {
     TextInputEditText textInputEditTextUsername, textInputEditTextPassword;
     String baseURL, token;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Long appId = 1643629424L;    // The AppID you get from ZEGOCLOUD Admin Console.
-        String appSign = "f648f9982a76de835b9a988cad8621e4c88a7a6cdf9bf36694dfb55bd684fe6c";    // The App Sign you get from ZEGOCLOUD Admin Console.
-        ZIMKit.initWith(getApplication(), appId, appSign);
-        // Online notification for the initialization (use the following code if this is needed).
-        ZIMKit.initNotifications();
+//        Long appId = 1643629424L;    // The AppID you get from ZEGOCLOUD Admin Console.
+//        String appSign = "f648f9982a76de835b9a988cad8621e4c88a7a6cdf9bf36694dfb55bd684fe6c";    // The App Sign you get from ZEGOCLOUD Admin Console.
+//        ZIMKit.initWith(getApplication(), appId, appSign);
+//        // Online notification for the initialization (use the following code if this is needed).
+//        ZIMKit.initNotifications();
 
         SharedPreferences prefs1 = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = getSharedPreferences("MyPrefs", MODE_PRIVATE).edit();
@@ -56,16 +58,6 @@ public class LoginActivity extends AppCompatActivity {
         // check thong tin dang nhap
         checkTokenAndRoleUser();
 
-        LoadingDialog loadingDialog = new LoadingDialog(LoginActivity.this);
-        loadingDialog.startLoadingDialog();
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                loadingDialog.dismissDialog();
-            }
-        }, 2000);
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -75,13 +67,15 @@ public class LoginActivity extends AppCompatActivity {
         buttonLogin = (Button) findViewById(R.id.buttonLogin);
         buttonLogin.setOnClickListener(v -> {
             login();
+
         });
-
-
     }
 
 
     private void checkTokenAndRoleUser() {
+        LoadingDialog loadingDialog = new LoadingDialog(LoginActivity.this);
+        loadingDialog.startLoadingDialog();
+
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         String token = prefs.getString("token", null);
         if (token != null) {
@@ -95,12 +89,15 @@ public class LoginActivity extends AppCompatActivity {
             client.newCall(request).enqueue(new Callback() {
                 @Override
                 public void onFailure(Call call, IOException e) {
+
+                    loadingDialog.dismissDialog();
                     e.printStackTrace();
                 }
 
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     String responseData = response.body().string();
+                    loadingDialog.dismissDialog();
                     try {
                         JSONObject jsonResponse = new JSONObject(responseData);
                         RoleUser roleUser = RoleUser.valueOf(jsonResponse.getString("role"));
@@ -132,13 +129,16 @@ public class LoginActivity extends AppCompatActivity {
 
     private void login() {
         // Call API login
+
         String username = textInputEditTextUsername.getText().toString();
         String password = textInputEditTextPassword.getText().toString();
         if (username.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "Username or password is empty", Toast.LENGTH_SHORT).show();
+            Toasty.error(this, "Username or password is empty", Toast.LENGTH_SHORT).show();
         } else {
             // Call API login
             // Tạo JSON body
+            LoadingDialog loadingDialog = new LoadingDialog(LoginActivity.this);
+            loadingDialog.startLoadingDialog();
             JSONObject jsonBody = new JSONObject();
             try {
                 jsonBody.put("username", username);
@@ -167,7 +167,8 @@ public class LoginActivity extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_SHORT).show();
+                            loadingDialog.dismissDialog();
+                            Toasty.error(getApplicationContext(), "Kết nối với máy chủ thất bại! ", Toast.LENGTH_SHORT).show();
                         }
                     });
                     e.printStackTrace();
@@ -228,7 +229,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
             });
         }
-
 
     }
 }

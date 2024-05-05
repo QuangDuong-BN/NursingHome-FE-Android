@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="20dp"
         android:background="@color/colorPrimary"
         android:gravity="center"
         android:padding="10dp"
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/list_item_selector"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -60,6 +60,7 @@
                             app:cardElevation="4dp">
 
                             <ImageView
+                                android:id="@+id/doctorimage1"
                                 android:layout_width="120dp"
                                 android:layout_height="120dp"
                                 android:background="@color/backgroudcutom"
@@ -79,7 +80,7 @@
                                 android:layout_gravity="center"
                                 android:layout_marginStart="10dp"
                                 android:gravity="left"
-                                android:text="DR Dương"
+                                android:text="BS Dương"
                                 android:textColor="@color/colorPrimary"
                                 android:textSize="25sp"
                                 android:textStyle="bold" />
@@ -127,7 +128,7 @@
                                     android:layout_gravity="center"
                                     android:layout_marginStart="3dp"
                                     android:gravity="left"
-                                    android:text="01:00 - 08:00 PM"
+                                    android:text="08:00 AM - 05:00 PM"
                                     android:textColor="@color/black"
                                     android:textSize="15sp" />
                             </LinearLayout>
@@ -135,7 +136,7 @@
                     </LinearLayout>
 
                     <Button
-                        android:id="@+id/NhanTin"
+                        android:id="@+id/NhanTin1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -144,6 +145,121 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="true">
+
+                <!-- Các phần tử con của CardView sẽ được đặt ở đây -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="4dp">
+
+                            <ImageView
+                                android:id="@+id/doctorimage2"
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                android:background="@color/backgroudcutom"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/doctorimage" />
+                        </androidx.cardview.widget.CardView>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="10dp"
+                                android:gravity="left"
+                                android:text="ĐD Huyền"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="25sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_gravity="center"
+                                    android:layout_margin="5dp"
+                                    android:src="@drawable/docter" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="3dp"
+                                    android:gravity="left"
+                                    android:text="Điều dưỡng"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="15dp"
+                                    android:layout_height="15dp"
+                                    android:layout_gravity="center"
+                                    android:layout_margin="5dp"
+                                    android:src="@drawable/clock" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="3dp"
+                                    android:gravity="left"
+                                    android:text="08:00 AM - 05:00 PM"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/NhanTin2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/custom_button"
+                        android:text="Liên hệ" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
     </LinearLayout>

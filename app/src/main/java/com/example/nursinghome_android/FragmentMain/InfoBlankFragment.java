@@ -6,11 +6,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.nursinghome_android.R;
 import com.example.nursinghome_android.chatrealtime.MyZIMKitActivity;
+import com.example.nursinghome_android.valueStatic.ChatID;
 import com.zegocloud.zimkit.common.ZIMKitRouter;
 import com.zegocloud.zimkit.common.enums.ZIMKitConversationType;
 
@@ -67,13 +73,38 @@ public class InfoBlankFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_info_blank, container, false);
-        Button button = view.findViewById(R.id.NhanTin);
+
+        ImageView imageView = view.findViewById(R.id.doctorimage1);
+        Glide.with(getContext())
+                .load("https://res.cloudinary.com/djq4zsauv/image/upload/v1714842952/farkcap74koxamb1pjrd.png")
+                .apply(new RequestOptions().transform(new CenterCrop(), new RoundedCorners(12)))
+                .into(imageView);
+
+        Button button = view.findViewById(R.id.NhanTin1);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ChatID.chatID = "bacsi1";
                 startActivity(new Intent(getActivity(), MyZIMKitActivity.class));
             }
         });
+
+        ImageView imageView1 = view.findViewById(R.id.doctorimage2);
+        Glide.with(getContext())
+                .load("https://res.cloudinary.com/djq4zsauv/image/upload/v1714842868/otp8siickyzt5gcnppga.png")
+                .apply(new RequestOptions().transform(new CenterCrop(), new RoundedCorners(12)))
+                .into(imageView1);
+
+        Button button1 = view.findViewById(R.id.NhanTin2);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ChatID.chatID = "ddhuyeen";
+                startActivity(new Intent(getActivity(), MyZIMKitActivity.class));
+            }
+        });
+
+
         return view;
     }
 }

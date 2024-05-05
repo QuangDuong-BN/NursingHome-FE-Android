@@ -6,6 +6,7 @@ import android.app.Application;
 import android.os.Bundle;
 
 import com.example.nursinghome_android.R;
+import com.example.nursinghome_android.valueStatic.ChatID;
 import com.zegocloud.uikit.prebuilt.call.invite.ZegoUIKitPrebuiltCallInvitationConfig;
 import com.zegocloud.uikit.prebuilt.call.invite.ZegoUIKitPrebuiltCallInvitationService;
 import com.zegocloud.zimkit.common.ZIMKitRouter;
@@ -26,16 +27,16 @@ public class ConversationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_conversation);
         Application application = getApplication(); // Android's application context
 
-        Long appID = 949308766L;   // yourAppID
-        String appSign ="ed672560f0c6413248f865b7adf9b5bc15c871f6f6a63cfb8bdb4254bd8f484f";  // yourAppSign
-        String userID ="duong123"; // yourUserID, userID should only contain numbers, English characters, and '_'.
-        String userName ="Quang Duong";   // yourUserName
-
-//        String userID = "bacsi1"; // Your ID as a user.
-//        String userName = " Bs Dũng"; // You name as a user.
-
-        ZegoUIKitPrebuiltCallInvitationConfig callInvitationConfig = new ZegoUIKitPrebuiltCallInvitationConfig();
-        ZegoUIKitPrebuiltCallInvitationService.init(getApplication(), appID, appSign, userID, userName, callInvitationConfig);
+//        Long appID = 949308766L;   // yourAppID
+//        String appSign ="ed672560f0c6413248f865b7adf9b5bc15c871f6f6a63cfb8bdb4254bd8f484f";  // yourAppSign
+//        String userID ="duong123"; // yourUserID, userID should only contain numbers, English characters, and '_'.
+//        String userName ="Quang Duong";   // yourUserName
+//
+////        String userID = "bacsi1"; // Your ID as a user.
+////        String userName = " Bs Dũng"; // You name as a user.
+//
+//        ZegoUIKitPrebuiltCallInvitationConfig callInvitationConfig = new ZegoUIKitPrebuiltCallInvitationConfig();
+//        ZegoUIKitPrebuiltCallInvitationService.init(getApplication(), appID, appSign, userID, userName, callInvitationConfig);
         ZIMKit.registerMessageListListener(new ZIMKitMessagesListListener() {
             @Override
             public ZIMKitHeaderBar getMessageListHeaderBar(ZIMKitMessageFragment fragment) {
@@ -57,7 +58,7 @@ public class ConversationActivity extends AppCompatActivity {
             }
         });
 
-        startSingleChat("bacsi1");
+        startSingleChat(ChatID.chatID);
     }
     private void startSingleChat(String userId){
 

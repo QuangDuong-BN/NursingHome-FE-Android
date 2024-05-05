@@ -8,14 +8,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.nursinghome_android.R;
 import com.example.nursinghome_android.mainactivity.LoginActivity;
 import com.example.nursinghome_android.valueStatic.UserInfoStatic;
@@ -92,6 +93,13 @@ public class SettingBlankFragment extends Fragment {
         });
 
 
+        ImageView imageView = view.findViewById(R.id.imgUser);
+        SharedPreferences prefs1 = getActivity().getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        String imageUrl = prefs1.getString("imageUrl", null);
+        Glide.with(this)
+                .load(imageUrl)
+                .apply(new RequestOptions().transform(new CenterCrop(), new CircleCrop()))
+                .into(imageView);
 
 
         return view;

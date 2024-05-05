@@ -264,7 +264,7 @@
                             android:layout_gravity="center"
                             android:layout_marginStart="10dp"
                             android:gravity="left"
-                            android:text="Đội ngũ y bác sĩ giàu chuyên môn, tận tâm, cùng hệ thống trang thiết bị hiện đại"
+                            android:text="Trung tâm cung cấp các gói dịch vụ đa dạng, cùng hệ thống trang thiết bị hiện đại"
                             android:textColor="#AAAAAA"
                             android:textSize="15sp" />
                     </LinearLayout>
@@ -273,6 +273,8 @@
             <!-- Các phần tử con của CardView sẽ được đặt ở đây -->
 
         </androidx.cardview.widget.CardView>
+
+
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewDatlichTham"

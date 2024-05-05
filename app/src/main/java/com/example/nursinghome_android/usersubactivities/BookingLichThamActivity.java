@@ -1,28 +1,25 @@
 package com.example.nursinghome_android.usersubactivities;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
+import android.widget.CalendarView;
 import android.widget.Spinner;
-import android.widget.Toast;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.nursinghome_android.R;
 
-import es.dmoral.toasty.Toasty;
-
 public class BookingLichThamActivity extends AppCompatActivity {
     private Toolbar toolbar;
-    private DatePicker datePicker;
+    private CalendarView datePicker;
     private Spinner timeSpinner;
     private Button registerButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +50,7 @@ public class BookingLichThamActivity extends AppCompatActivity {
             }
         });
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
@@ -63,13 +61,7 @@ public class BookingLichThamActivity extends AppCompatActivity {
     }
 
     private void registerAppointment() {
-        int day = datePicker.getDayOfMonth();
-        int month = datePicker.getMonth() + 1;
-        int year = datePicker.getYear();
-        String selectedTime = timeSpinner.getSelectedItem().toString();
 
-        String message = "Bạn đã đăng ký lịch thăm bệnh vào ngày " + day + "/" + month + "/" + year + " vào buổi " + selectedTime;
-        Toasty.success(this, message, Toast.LENGTH_LONG).show();
     }
 
 }

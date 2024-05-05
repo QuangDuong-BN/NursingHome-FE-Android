@@ -58,7 +58,6 @@ public class MealPlanActivity extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 updateMeals(year, month, dayOfMonth);
-                Toasty.success(MealPlanActivity.this, "Đã chọn ngày " + dayOfMonth + "/" + (month + 1) + "/" + year, Toasty.LENGTH_SHORT).show();
             }
         });
 

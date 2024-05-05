@@ -15,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import im.zego.zim.enums.ZIMConversationType;
 import im.zego.zim.enums.ZIMErrorCode;
 
+import com.zegocloud.uikit.prebuilt.call.invite.ZegoUIKitPrebuiltCallInvitationConfig;
+import com.zegocloud.uikit.prebuilt.call.invite.ZegoUIKitPrebuiltCallInvitationService;
 import com.zegocloud.zimkit.components.message.interfaces.ZIMKitMessagesListListener;
 import com.zegocloud.zimkit.components.message.model.ZIMKitHeaderBar;
 import com.zegocloud.zimkit.components.message.ui.ZIMKitMessageFragment;
@@ -47,6 +49,19 @@ public class MyZIMKitActivity extends AppCompatActivity {
         String userName = "Quang Dương"; // You name as a user.
         String userAvatar ="http://res.cloudinary.com/djq4zsauv/image/upload/v1712820969/uep2jhlyf4ykelacyngh.png";
         connectUser(userId, userName,userAvatar);
+
+
+//        String userId = "ddhuyeen"; // Your ID as a user.
+//        String userName = "ĐD Huyền"; // You name as a user.
+//        String userAvatar ="https://res.cloudinary.com/djq4zsauv/image/upload/v1714842868/otp8siickyzt5gcnppga.png";
+//        connectUser(userId, userName,userAvatar);
+
+        String appSign ="ed672560f0c6413248f865b7adf9b5bc15c871f6f6a63cfb8bdb4254bd8f484f";  // yourAppSign
+        Long appID = 949308766L;   // yourAppID
+
+        ZegoUIKitPrebuiltCallInvitationConfig callInvitationConfig = new ZegoUIKitPrebuiltCallInvitationConfig();
+        ZegoUIKitPrebuiltCallInvitationService.init(getApplication(), appID, appSign, userId, userName, callInvitationConfig);
+
     }
 
 

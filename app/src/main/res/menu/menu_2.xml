@@ -7,13 +7,13 @@
 
     <item
         android:id="@+id/item3"
-        android:icon="@drawable/chatbox"
+        android:icon="@drawable/phone_two"
         android:title="" />
 
-    <item
-        android:id="@+id/item2"
-        android:icon="@drawable/noti"
-        android:title="" />
+<!--    <item-->
+<!--        android:id="@+id/item2"-->
+<!--        android:icon="@drawable/noti"-->
+<!--        android:title="" />-->
 
     <item
         android:id="@+id/item1"

@@ -4,9 +4,11 @@ import static com.example.nursinghome_android.valueStatic.BaseURL.baseURL;
 
 import android.app.DatePickerDialog;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -80,7 +82,12 @@ public class RegisterServiceActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowTitleEnabled(false);
+            Drawable upArrow = getResources().getDrawable(R.drawable.ic_arrow_back);
+            actionBar.setHomeAsUpIndicator(upArrow);
         }
+
+        Window window = getWindow();
+        window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
 
         // nut dang ki
         buttonRegisterService.setOnClickListener(new View.OnClickListener() {

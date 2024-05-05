@@ -18,12 +18,13 @@
             android:background="@color/colorPrimary"
             android:gravity="center"
             android:padding="10dp"
-            android:text="SETTING"
+            android:text="Cài đặt"
             android:textColor="@color/white"
             android:textSize="25dp"
             android:textStyle="bold" />
 
         <ImageView
+            android:id="@+id/imgUser"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
@@ -34,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:text="Cài đặt thông tin cá nhân"
+            android:text="Tài khoản"
             android:textColor="@color/colorPrimary"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -45,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:backgroundTint="@color/white"
-            android:text="Chỉnh sửa thông tin cá nha"
+            android:text="Chỉnh sửa thông tin cá nhân"
             android:textColor="@color/black"
             android:textSize="15dp"
             android:textStyle="normal" />
@@ -62,7 +63,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:backgroundTint="@color/white"
-            android:text="lịch sử thanh toán"
+            android:text="Lịch sử thanh toán"
             android:textColor="@color/black"
             android:textSize="15dp"
             android:textStyle="normal" />

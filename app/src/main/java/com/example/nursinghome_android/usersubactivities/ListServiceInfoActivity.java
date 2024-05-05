@@ -4,6 +4,7 @@ import static com.example.nursinghome_android.valueStatic.BaseURL.baseURL;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Window;
@@ -55,6 +56,8 @@ public class ListServiceInfoActivity extends AppCompatActivity implements Dropdo
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowTitleEnabled(false);
+            Drawable upArrow = getResources().getDrawable(R.drawable.ic_arrow_back);
+            actionBar.setHomeAsUpIndicator(upArrow);
         }
         Window window = getWindow();
         window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
