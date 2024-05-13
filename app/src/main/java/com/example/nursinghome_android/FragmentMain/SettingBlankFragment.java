@@ -21,6 +21,8 @@ import com.example.nursinghome_android.R;
 import com.example.nursinghome_android.mainactivity.LoginActivity;
 import com.example.nursinghome_android.valueStatic.UserInfoStatic;
 
+import es.dmoral.toasty.Toasty;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -101,6 +103,15 @@ public class SettingBlankFragment extends Fragment {
                 .apply(new RequestOptions().transform(new CenterCrop(), new CircleCrop()))
                 .into(imageView);
 
+        Button button = view.findViewById(R.id.btnLichSuDangKiDichVu);
+        button.setOnClickListener(v -> {
+            Toasty.info(getActivity(), "Chức năng đang phát triển", Toasty.LENGTH_SHORT).show();
+        });
+
+        Button button1 = view.findViewById(R.id.btnQuanLyThongTinNguoiThan);
+        button1.setOnClickListener(v -> {
+            Toasty.info(getActivity(), "Chức năng đang phát triển", Toasty.LENGTH_SHORT).show();
+        });
 
         return view;
 

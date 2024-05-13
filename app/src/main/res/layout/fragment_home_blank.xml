@@ -89,8 +89,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="8dp"
@@ -202,6 +202,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="Tiện ích"
+            android:textColor="@color/colorPrimary"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -273,7 +274,6 @@
             <!-- Các phần tử con của CardView sẽ được đặt ở đây -->
 
         </androidx.cardview.widget.CardView>
-
 
 
         <androidx.cardview.widget.CardView
@@ -349,9 +349,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
+            android:layout_marginBottom="10dp"
             app:cardCornerRadius="8dp"
             app:cardElevation="4dp"
-            android:layout_marginBottom="10dp"
             app:cardPreventCornerOverlap="true"
             app:cardUseCompatPadding="true">
 

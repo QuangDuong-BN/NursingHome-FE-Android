@@ -59,11 +59,30 @@
             android:background="@color/colorPrimary" />
 
         <Button
+            android:id="@+id/btnLichSuDangKiDichVu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:backgroundTint="@color/white"
-            android:text="Lịch sử thanh toán"
+            android:text="Lịch sử đăng kí dịch vụ"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="normal" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@color/colorPrimary" />
+
+        <Button
+            android:id="@+id/btnQuanLyThongTinNguoiThan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:backgroundTint="@color/white"
+            android:text="Quản lý thông tin người thân"
             android:textColor="@color/black"
             android:textSize="15dp"
             android:textStyle="normal" />
