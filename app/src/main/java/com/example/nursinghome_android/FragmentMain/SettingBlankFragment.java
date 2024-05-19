@@ -105,7 +105,8 @@ public class SettingBlankFragment extends Fragment {
 
         Button button = view.findViewById(R.id.btnLichSuDangKiDichVu);
         button.setOnClickListener(v -> {
-            Toasty.info(getActivity(), "Chức năng đang phát triển", Toasty.LENGTH_SHORT).show();
+            Intent intent = new Intent(getActivity(), com.example.nursinghome_android.usersubactivities.LichSuDangKiDichVu.class);
+            startActivity(intent);
         });
 
         Button button1 = view.findViewById(R.id.btnQuanLyThongTinNguoiThan);

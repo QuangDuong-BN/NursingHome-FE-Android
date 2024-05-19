@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.widget.ListView;
 
@@ -19,6 +20,7 @@ import com.example.nursinghome_android.ListViewSetUp.DropdownAdapterUser;
 import com.example.nursinghome_android.R;
 import com.example.nursinghome_android.config.LoadingDialog;
 import com.example.nursinghome_android.entityDTO.UserItemforListUserDTO;
+import com.example.nursinghome_android.usersubactivities.AddUser2Activity;
 import com.example.nursinghome_android.usersubactivities.BookingLichThamActivity;
 import com.example.nursinghome_android.usersubactivities.ChooseHealtyOrMealPlan;
 import com.example.nursinghome_android.usersubactivities.Healthactivity;
@@ -26,6 +28,7 @@ import com.example.nursinghome_android.usersubactivities.ListServiceInfoActivity
 import com.example.nursinghome_android.usersubactivities.MealPlanActivity;
 import com.example.nursinghome_android.valueStatic.BookingInfo;
 import com.example.nursinghome_android.valueStatic.ChooseFuture;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -66,6 +69,15 @@ public class ListUserActivity extends AppCompatActivity implements DropdownAdapt
         mDropdownListView = findViewById(R.id.listViewDropdownUser);
         Window window = getWindow();
         window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ListUserActivity.this, AddUser2Activity.class);
+                startActivity(intent);
+            }
+        });
 
         LoadingDialog loadingDialog = new LoadingDialog(ListUserActivity.this);
         loadingDialog.startLoadingDialog();

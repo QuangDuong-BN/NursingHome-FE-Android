@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     tools:context=".ListUserActivity.ListUserActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -18,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Danh sách người dùng"
+            android:text="Danh sách người thân"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:textColorHint="@color/white"
@@ -27,6 +29,7 @@
     </androidx.appcompat.widget.Toolbar>
 
     <!-- list_item_dropdown.xml -->
+
     <ListView
         android:id="@+id/listViewDropdownUser"
         android:layout_width="match_parent"
@@ -34,5 +37,15 @@
         android:background="@drawable/list_item_selector"
         android:divider="@android:color/transparent"
         android:dividerHeight="8dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        app:tint="@color/white"
+        app:backgroundTint="@color/colorPrimary"        android:src="@drawable/baseline_add_24"
+        android:contentDescription="Thêm người thân"
+        android:layout_margin="16dp" />
 
 </LinearLayout>
