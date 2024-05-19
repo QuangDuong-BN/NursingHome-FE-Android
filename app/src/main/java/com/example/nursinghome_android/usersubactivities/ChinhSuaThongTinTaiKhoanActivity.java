@@ -21,14 +21,14 @@ import com.example.nursinghome_android.R;
 import java.util.Arrays;
 import java.util.Calendar;
 
-public class CaiDatThongTinNguoiThanActivity extends AppCompatActivity {
+public class ChinhSuaThongTinTaiKhoanActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cai_dat_thong_tin_nguoi_than);
+        setContentView(R.layout.activity_chinh_sua_thong_tin_tai_khoan);
 
-        Toolbar toolbar = findViewById(R.id.toolbarCaiDatThongTinNguoiThan);
+        Toolbar toolbar = findViewById(R.id.toolbarChinhSuaThongTinTaiKhoan);
         setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();
@@ -40,7 +40,7 @@ public class CaiDatThongTinNguoiThanActivity extends AppCompatActivity {
         }
         Window window = getWindow();
         window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
-        Spinner spinnerAddress = findViewById(R.id.spinnerRelationshipCaiDatThongTinNguoiThan);
+        Spinner spinnerAddress = findViewById(R.id.spinnerRelationshipChinhSuaThongTinTaiKhoan);
 
 // Danh sách các tỉnh ở Việt Nam
         String[] provinces = new String[]{
@@ -72,7 +72,7 @@ public class CaiDatThongTinNguoiThanActivity extends AppCompatActivity {
         spinnerAddress.setSelection(defaultPosition);
 
         // Find the EditText in your layout
-        final EditText editTextDateOfBirth = findViewById(R.id.editTextDateOfBirthCaiDatThongTinNguoiThan);
+        final EditText editTextDateOfBirth = findViewById(R.id.editTextDateOfBirthChinhSuaThongTinTaiKhoan);
 
 // Set an OnClickListener for the EditText
         editTextDateOfBirth.setOnClickListener(new View.OnClickListener() {
@@ -85,7 +85,7 @@ public class CaiDatThongTinNguoiThanActivity extends AppCompatActivity {
                 int mDay = c.get(Calendar.DAY_OF_MONTH);
 
                 // Create a new instance of DatePickerDialog and return it
-                DatePickerDialog datePickerDialog = new DatePickerDialog(CaiDatThongTinNguoiThanActivity.this,
+                DatePickerDialog datePickerDialog = new DatePickerDialog(ChinhSuaThongTinTaiKhoanActivity.this,
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
@@ -97,7 +97,7 @@ public class CaiDatThongTinNguoiThanActivity extends AppCompatActivity {
             }
         });
 
-        RadioGroup radioGroupGender = findViewById(R.id.radioGroupGenderCaiDatThongTinNguoiThan);
+        RadioGroup radioGroupGender = findViewById(R.id.radioGroupGenderChinhSuaThongTinTaiKhoan);
         radioGroupGender.check(R.id.radioButtonMaleCaiDatThongTinNguoiThan);
     }
 

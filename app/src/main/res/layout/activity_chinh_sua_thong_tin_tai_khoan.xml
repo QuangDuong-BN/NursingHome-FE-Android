@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".usersubactivities.CaiDatThongTinNguoiThanActivity">
+    tools:context=".usersubactivities.ChinhSuaThongTinTaiKhoanActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarCaiDatThongTinNguoiThan"
+        android:id="@+id/toolbarChinhSuaThongTinTaiKhoan"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/colorPrimary"
@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Thông tin người thân"
+            android:text="Thông tin cá nhân"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:textColorHint="@color/white"
@@ -39,13 +39,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:hint="Name"
+            android:hint="Họ và tên"
             app:boxBackgroundColor="@android:color/transparent"
             app:boxStrokeColor="@color/colorPrimary"
             app:hintTextColor="@color/colorPrimary">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextNameCaiDatThongTinNguoiThan"
+                android:id="@+id/editTextNameChinhSuaThongTinTaiKhoan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
@@ -58,13 +58,51 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:hint="Date of Birth"
+            android:hint="Nhập email"
             app:boxBackgroundColor="@android:color/transparent"
             app:boxStrokeColor="@color/colorPrimary"
             app:hintTextColor="@color/colorPrimary">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextDateOfBirthCaiDatThongTinNguoiThan"
+                android:id="@+id/editTextEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
+                android:textColor="@color/colorPrimary" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Nhập số điện thoại"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:hintTextColor="@color/colorPrimary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:padding="12dp"
+                android:textColor="@color/colorPrimary" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:hint="Ngày tháng năm sinh"
+            app:boxBackgroundColor="@android:color/transparent"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:hintTextColor="@color/colorPrimary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextDateOfBirthChinhSuaThongTinTaiKhoan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="date"
@@ -74,23 +112,21 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Spinner
-            android:id="@+id/spinnerRelationshipCaiDatThongTinNguoiThan"
+            android:id="@+id/spinnerRelationshipChinhSuaThongTinTaiKhoan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
             android:background="@android:drawable/btn_dropdown"
             android:spinnerMode="dropdown" />
 
         <RadioGroup
-            android:id="@+id/radioGroupGenderCaiDatThongTinNguoiThan"
+            android:id="@+id/radioGroupGenderChinhSuaThongTinTaiKhoan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
             android:gravity="center"
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/radioButtonMaleCaiDatThongTinNguoiThan"
+                android:id="@+id/radioButtonMaleChinhSuaThongTinTaiKhoan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="40dp"
@@ -98,7 +134,7 @@
                 android:textColor="@color/colorPrimary" />
 
             <RadioButton
-                android:id="@+id/radioButtonFemaleCaiDatThongTinNguoiThan"
+                android:id="@+id/radioButtonFemaleChinhSuaThongTinTaiKhoan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Bà"
@@ -106,10 +142,20 @@
         </RadioGroup>
 
         <Button
-            android:id="@+id/buttonSaveCaiDatThongTinNguoiThan"
+            android:id="@+id/buttonChangePasswordChinhSuaThongTinTaiKhoan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/custom_button"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="#D5C3C3"
+            android:text="Thay đổi mật khẩu"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/buttonSaveChinhSuaThongTinTaiKhoan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Lưu thông tin"
             android:textSize="20sp"
             android:textStyle="bold" />

@@ -111,6 +111,12 @@ public class SettingBlankFragment extends Fragment {
             startActivity(intent);
         });
 
+        Button btnChinhSuaThongTinTaiKhoan = view.findViewById(R.id.btnChinhSuaThongTinTaiKhoan);
+        btnChinhSuaThongTinTaiKhoan.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), com.example.nursinghome_android.usersubactivities.ChinhSuaThongTinTaiKhoanActivity.class);
+            startActivity(intent);
+        });
+
         Button button1 = view.findViewById(R.id.btnQuanLyThongTinNguoiThan);
         button1.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), ListUserActivity.class);
