@@ -17,8 +17,10 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.nursinghome_android.ListUserActivity.ListUserActivity;
 import com.example.nursinghome_android.R;
 import com.example.nursinghome_android.mainactivity.LoginActivity;
+import com.example.nursinghome_android.valueStatic.ChooseFuture;
 import com.example.nursinghome_android.valueStatic.UserInfoStatic;
 
 import es.dmoral.toasty.Toasty;
@@ -111,6 +113,9 @@ public class SettingBlankFragment extends Fragment {
 
         Button button1 = view.findViewById(R.id.btnQuanLyThongTinNguoiThan);
         button1.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), ListUserActivity.class);
+            ChooseFuture.chooseFuture = "CaiDatThongTinNguoiThan";
+            startActivity(intent);
             Toasty.info(getActivity(), "Chức năng đang phát triển", Toasty.LENGTH_SHORT).show();
         });
 

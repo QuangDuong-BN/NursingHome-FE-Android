@@ -1,8 +1,10 @@
 package com.example.nursinghome_android.usersubactivities;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -32,7 +34,12 @@ public class BookingLichThamActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowTitleEnabled(false);
+            Drawable upArrow = getResources().getDrawable(R.drawable.ic_arrow_back);
+            actionBar.setHomeAsUpIndicator(upArrow);
         }
+
+        Window window = getWindow();
+        window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
 
         datePicker = findViewById(R.id.datePicker);
         timeSpinner = findViewById(R.id.timeSpinner);

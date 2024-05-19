@@ -25,4 +25,13 @@
             android:textStyle="bold" />
     </androidx.appcompat.widget.Toolbar>
 
+    <!-- list_item_dropdown.xml -->
+    <ListView
+        android:id="@+id/listViewDropdownServiceRecord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="8dp"
+        android:background="@drawable/list_item_selector"/>
+
 </LinearLayout>

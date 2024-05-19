@@ -28,7 +28,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
+        android:layout_marginTop="15dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         app:cardCornerRadius="8dp"
@@ -224,6 +224,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/tvWeight"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -273,6 +274,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/tvBloodPressure"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -322,6 +324,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/tvHeartRate"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -372,6 +375,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/tvTemperature"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -421,6 +425,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/tvAwareness"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -470,6 +475,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/tvEmotion"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"

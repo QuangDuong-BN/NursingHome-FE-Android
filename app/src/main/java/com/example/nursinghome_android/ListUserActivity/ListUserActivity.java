@@ -22,6 +22,7 @@ import com.example.nursinghome_android.config.LoadingDialog;
 import com.example.nursinghome_android.entityDTO.UserItemforListUserDTO;
 import com.example.nursinghome_android.usersubactivities.AddUser2Activity;
 import com.example.nursinghome_android.usersubactivities.BookingLichThamActivity;
+import com.example.nursinghome_android.usersubactivities.CaiDatThongTinNguoiThanActivity;
 import com.example.nursinghome_android.usersubactivities.ChooseHealtyOrMealPlan;
 import com.example.nursinghome_android.usersubactivities.Healthactivity;
 import com.example.nursinghome_android.usersubactivities.ListServiceInfoActivity;
@@ -147,6 +148,11 @@ public class ListUserActivity extends AppCompatActivity implements DropdownAdapt
         if (ChooseFuture.chooseFuture.equals("health")) {
             BookingInfo.userIdFk = id;
             Intent intent = new Intent(ListUserActivity.this, ChooseHealtyOrMealPlan.class);
+            startActivity(intent);
+        }
+        if (ChooseFuture.chooseFuture.equals("CaiDatThongTinNguoiThan")) {
+            BookingInfo.userIdFk = id;
+            Intent intent = new Intent(ListUserActivity.this, CaiDatThongTinNguoiThanActivity.class);
             startActivity(intent);
         }
 
