@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".usersubactivities.BookingLichThamActivity">
 
@@ -18,50 +19,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Đăt lịch thăm"
+            android:text="Theo dõi hoạt động và Đăt lịch thăm"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
 
-    <LinearLayout
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tableLayoutBookingLichTham"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="16dp"
-        android:orientation="vertical">
+        app:tabSelectedTextColor="@color/colorPrimary"
+        android:layout_height="wrap_content"/>
 
-        <CalendarView
-            android:id="@+id/datePicker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
-
-        <Spinner
-            android:id="@+id/timeSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_below="@id/datePicker"
-            android:layout_gravity="center"
-            android:entries="@array/time_entries"
-            android:minHeight="48dp" />
-
-        <Button
-            android:id="@+id/registerButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/timeSpinner"
-            android:layout_gravity="center"
-            android:layout_margin="20dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:background="@drawable/custom_button"
-            android:gravity="center"
-            android:text="Đăng ký"
-            android:textSize="20sp" />
-    </LinearLayout>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPageerBookingLichTham"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
 </LinearLayout>

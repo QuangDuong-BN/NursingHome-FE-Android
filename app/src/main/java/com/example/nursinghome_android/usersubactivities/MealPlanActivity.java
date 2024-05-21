@@ -20,8 +20,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-import es.dmoral.toasty.Toasty;
-
 public class MealPlanActivity extends AppCompatActivity {
     private CalendarView calendarView;
     private Calendar calendar;
@@ -51,7 +49,7 @@ public class MealPlanActivity extends AppCompatActivity {
         cardViewBreakfast = findViewById(R.id.cardViewBreakfast);
         cardViewLunch = findViewById(R.id.cardViewLunch);
         cardViewDinner = findViewById(R.id.cardViewDinner);
-        calendarView = findViewById(R.id.datePicker);
+        calendarView = findViewById(R.id.datePickerActionFrament);
 
 //        mealsTextView = findViewById(R.id.mealsTextView);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {

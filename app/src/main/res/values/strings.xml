@@ -11,4 +11,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="action">Hoạt động</string>
+    <string name="booking">Đặt lịch</string>
+    <string name="LichSuBooking">Lịch sử</string>
+
 </resources>

@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".usersubactivities.ChinhSuaThongTinTaiKhoanActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -21,9 +21,9 @@
             android:layout_gravity="center"
             android:text="Thông tin cá nhân"
             android:textColor="@color/white"
-            android:textStyle="bold"
             android:textColorHint="@color/white"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -64,7 +64,7 @@
             app:hintTextColor="@color/colorPrimary">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextEmail"
+                android:id="@+id/editTextEmailChinhSuaThongTinTaiKhoan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
@@ -83,7 +83,7 @@
             app:hintTextColor="@color/colorPrimary">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextPhoneNumber"
+                android:id="@+id/editTextPhoneChinhSuaThongTinTaiKhoan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="phone"
@@ -92,24 +92,24 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:hint="Ngày tháng năm sinh"
-            app:boxBackgroundColor="@android:color/transparent"
-            app:boxStrokeColor="@color/colorPrimary"
-            app:hintTextColor="@color/colorPrimary">
+        <!--        <com.google.android.material.textfield.TextInputLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginBottom="16dp"-->
+        <!--            android:hint="Ngày tháng năm sinh"-->
+        <!--            app:boxBackgroundColor="@android:color/transparent"-->
+        <!--            app:boxStrokeColor="@color/colorPrimary"-->
+        <!--            app:hintTextColor="@color/colorPrimary">-->
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextDateOfBirthChinhSuaThongTinTaiKhoan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="date"
-                android:padding="12dp"
-                android:textColor="@color/colorPrimary" />
+        <!--            <com.google.android.material.textfield.TextInputEditText-->
+        <!--                android:id="@+id/editTextDateOfBirthChinhSuaThongTinTaiKhoan"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:inputType="date"-->
+        <!--                android:padding="12dp"-->
+        <!--                android:textColor="@color/colorPrimary" />-->
 
-        </com.google.android.material.textfield.TextInputLayout>
+        <!--        </com.google.android.material.textfield.TextInputLayout>-->
 
         <Spinner
             android:id="@+id/spinnerRelationshipChinhSuaThongTinTaiKhoan"
@@ -149,8 +149,7 @@
             android:backgroundTint="#D5C3C3"
             android:text="Thay đổi mật khẩu"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/buttonSaveChinhSuaThongTinTaiKhoan"

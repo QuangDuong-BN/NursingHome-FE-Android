@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.app.DatePickerDialog;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -42,6 +43,23 @@ public class ChinhSuaThongTinTaiKhoanActivity extends AppCompatActivity {
         window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
         Spinner spinnerAddress = findViewById(R.id.spinnerRelationshipChinhSuaThongTinTaiKhoan);
 
+        SharedPreferences prefs1 = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        String name = prefs1.getString("name", null);
+        String address = prefs1.getString("address", null);
+        String email = prefs1.getString("email", null);
+        String phone = prefs1.getString("phone", null);
+        String gender = prefs1.getString("gender",null);
+
+        EditText editTextName = findViewById(R.id.editTextNameChinhSuaThongTinTaiKhoan);
+        editTextName.setText(name);
+
+        EditText editTextEmail = findViewById(R.id.editTextEmailChinhSuaThongTinTaiKhoan);
+        editTextEmail.setText(email);
+
+        EditText editTextPhone = findViewById(R.id.editTextPhoneChinhSuaThongTinTaiKhoan);
+        editTextPhone.setText(phone);
+
+
 // Danh sách các tỉnh ở Việt Nam
         String[] provinces = new String[]{
                 "An Giang", "Bà Rịa - Vũng Tàu", "Bắc Giang", "Bắc Kạn", "Bạc Liêu", "Bắc Ninh",
@@ -66,39 +84,45 @@ public class ChinhSuaThongTinTaiKhoanActivity extends AppCompatActivity {
         spinnerAddress.setAdapter(adapter);
 
         // Tìm vị trí của "Hà Nội" trong mảng provinces
-        int defaultPosition = Arrays.asList(provinces).indexOf("Hà Nội");
+        int defaultPosition = Arrays.asList(provinces).indexOf(address);
 
 // Thiết lập "Hà Nội" làm giá trị mặc định cho Spinner
         spinnerAddress.setSelection(defaultPosition);
 
-        // Find the EditText in your layout
-        final EditText editTextDateOfBirth = findViewById(R.id.editTextDateOfBirthChinhSuaThongTinTaiKhoan);
+//        // Find the EditText in your layout
+//        final EditText editTextDateOfBirth = findViewById(R.id.editTextDateOfBirthChinhSuaThongTinTaiKhoan);
+//
+//// Set an OnClickListener for the EditText
+//        editTextDateOfBirth.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                // Get the current date
+//                final Calendar c = Calendar.getInstance();
+//                int mYear = c.get(Calendar.YEAR);
+//                int mMonth = c.get(Calendar.MONTH);
+//                int mDay = c.get(Calendar.DAY_OF_MONTH);
+//
+//                // Create a new instance of DatePickerDialog and return it
+//                DatePickerDialog datePickerDialog = new DatePickerDialog(ChinhSuaThongTinTaiKhoanActivity.this,
+//                        new DatePickerDialog.OnDateSetListener() {
+//                            @Override
+//                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+//                                // Display the selected date in the EditText
+//                                editTextDateOfBirth.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+//                            }
+//                        }, mYear, mMonth, mDay);
+//                datePickerDialog.show();
+//            }
+//        });
 
-// Set an OnClickListener for the EditText
-        editTextDateOfBirth.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Get the current date
-                final Calendar c = Calendar.getInstance();
-                int mYear = c.get(Calendar.YEAR);
-                int mMonth = c.get(Calendar.MONTH);
-                int mDay = c.get(Calendar.DAY_OF_MONTH);
-
-                // Create a new instance of DatePickerDialog and return it
-                DatePickerDialog datePickerDialog = new DatePickerDialog(ChinhSuaThongTinTaiKhoanActivity.this,
-                        new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                // Display the selected date in the EditText
-                                editTextDateOfBirth.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
-                            }
-                        }, mYear, mMonth, mDay);
-                datePickerDialog.show();
-            }
-        });
 
         RadioGroup radioGroupGender = findViewById(R.id.radioGroupGenderChinhSuaThongTinTaiKhoan);
-        radioGroupGender.check(R.id.radioButtonMaleCaiDatThongTinNguoiThan);
+        if(gender.equals("MALE")){
+            radioGroupGender.check(R.id.radioButtonMaleChinhSuaThongTinTaiKhoan);
+        }
+        else {
+            radioGroupGender.check(R.id.radioButtonFemaleChinhSuaThongTinTaiKhoan);
+        }
     }
 
     @Override

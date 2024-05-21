@@ -13,15 +13,20 @@ import android.widget.Spinner;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
+import com.example.nursinghome_android.FragmentDatLichTham.ViewPagerAdapter1;
 import com.example.nursinghome_android.R;
+import com.google.android.material.tabs.TabLayout;
 
 public class BookingLichThamActivity extends AppCompatActivity {
     private Toolbar toolbar;
-    private CalendarView datePicker;
-    private Spinner timeSpinner;
-    private Button registerButton;
-
+//    private CalendarView datePicker;
+//    private Spinner timeSpinner;
+//    private Button registerButton;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,21 +46,26 @@ public class BookingLichThamActivity extends AppCompatActivity {
         Window window = getWindow();
         window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
 
-        datePicker = findViewById(R.id.datePicker);
-        timeSpinner = findViewById(R.id.timeSpinner);
-        registerButton = findViewById(R.id.registerButton);
-
-        ArrayAdapter<CharSequence> timeAdapter = ArrayAdapter.createFromResource(this,
-                R.array.time_entries, android.R.layout.simple_spinner_item);
-        timeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        timeSpinner.setAdapter(timeAdapter);
-
-        registerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                registerAppointment();
-            }
-        });
+        tabLayout = findViewById(R.id.tableLayoutBookingLichTham);
+        viewPager = findViewById(R.id.viewPageerBookingLichTham);
+        ViewPagerAdapter1 viewPagerAdapter1 = new ViewPagerAdapter1(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        viewPager.setAdapter(viewPagerAdapter1);
+        tabLayout.setupWithViewPager(viewPager);
+//        datePicker = findViewById(R.id.datePicker);
+//        timeSpinner = findViewById(R.id.timeSpinner);
+//        registerButton = findViewById(R.id.registerButton);
+//
+//        ArrayAdapter<CharSequence> timeAdapter = ArrayAdapter.createFromResource(this,
+//                R.array.time_entries, android.R.layout.simple_spinner_item);
+//        timeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        timeSpinner.setAdapter(timeAdapter);
+//
+//        registerButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                registerAppointment();
+//            }
+//        });
     }
 
     @Override

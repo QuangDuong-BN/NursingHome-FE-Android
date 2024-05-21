@@ -122,7 +122,6 @@ public class SettingBlankFragment extends Fragment {
             Intent intent = new Intent(getActivity(), ListUserActivity.class);
             ChooseFuture.chooseFuture = "CaiDatThongTinNguoiThan";
             startActivity(intent);
-            Toasty.info(getActivity(), "Chức năng đang phát triển", Toasty.LENGTH_SHORT).show();
         });
 
         return view;
