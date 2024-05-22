@@ -5,12 +5,14 @@ import static com.example.nursinghome_android.valueStatic.BaseURL.baseURL;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.TextView;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.example.nursinghome_android.R;
@@ -81,8 +83,6 @@ public class ActionBlankFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         CalendarView datePicker;
-//        Spinner timeSpinner;
-//        Button registerButton;
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_action_blank, container, false);
 
@@ -91,11 +91,11 @@ public class ActionBlankFragment extends Fragment {
         // Lấy thời gian hiện tại từ datePicker
         long currentTimeMillis = datePicker.getDate();
 
-// Chuyển đổi thời gian thành đối tượng Calendar
+        // Chuyển đổi thời gian thành đối tượng Calendar
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(currentTimeMillis);
 
-// Định dạng ngày tháng năm thành chuỗi
+        // Định dạng ngày tháng năm thành chuỗi
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         String dateString = dateFormat.format(calendar.getTime());
         TextView tvdateOfAction = view.findViewById(R.id.tvdateOfAction);
@@ -105,7 +105,16 @@ public class ActionBlankFragment extends Fragment {
 
         datePicker.setOnDateChangeListener((view1, year, month, dayOfMonth) -> {
             String date = year + "-" + (month + 1) + "-" + dayOfMonth;
-            LoadingDialog loadingDialog = new LoadingDialog(getActivity());
+            CardView cardViewMorning = view.findViewById(R.id.cardViewMorning);
+            CardView cardViewAfternoon = view.findViewById(R.id.cardViewAfternoon);
+            cardViewMorning.setVisibility(CardView.INVISIBLE);
+            cardViewAfternoon.setVisibility(CardView.INVISIBLE);
+
+            new Handler().postDelayed(() -> {
+                cardViewMorning.setVisibility(CardView.VISIBLE);
+                cardViewAfternoon.setVisibility(CardView.VISIBLE);
+            }, 100);
+
             tvdateOfAction.setText("Hoạt động ngày: " +date);
             callApiSetTextActionFragment(date, view);
 
@@ -200,7 +209,7 @@ public class ActionBlankFragment extends Fragment {
                             }
                             tvActionAfternoon.setText(object.get(1)[0].toString() + ":\n" + object.get(1)[1].toString());
                             if (object.get(1)[4].toString().equals("false")) {
-                                tvIsVistAbleAfternoon.setText("Lưu ý: Không đặt lich thăm");
+                                tvIsVistAbleAfternoon.setText("Lưu ý: Không thể đặt lich thăm");
                                 tvIsVistAbleAfternoon.setTextColor(getResources().getColor(R.color.red));
                             } else {
                                 tvIsVistAbleAfternoon.setText("Lưu ý: Có thể đặt lịch thăm");

@@ -14,10 +14,9 @@
         android:orientation="vertical">
 
         <CalendarView
-            android:id="@+id/datePickerActionFrament"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            android:id="@+id/datePickerBookingFrament"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewBreakfast"
@@ -31,9 +30,9 @@
 
             <!-- Các phần tử con của CardView sẽ được đặt ở đây -->
             <LinearLayout
-                android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:orientation="horizontal"
                 android:padding="5dp">
 
@@ -64,12 +63,10 @@
 
                     <Spinner
                         android:id="@+id/timeSpinner"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/datePickerActionFrament"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="50dp"
-                        android:layout_marginRight="50dp"
                         android:entries="@array/time_entries"
                         android:minHeight="48dp" />
                 </LinearLayout>
@@ -79,7 +76,7 @@
 
         <Button
             android:id="@+id/registerButton"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/timeSpinner"
             android:layout_gravity="center"

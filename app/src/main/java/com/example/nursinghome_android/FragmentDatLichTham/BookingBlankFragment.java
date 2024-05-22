@@ -4,10 +4,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CalendarView;
+import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.nursinghome_android.R;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
+import es.dmoral.toasty.Toasty;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -60,6 +69,32 @@ public class BookingBlankFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_booking_blank, container, false);
+        Button registerButton = view.findViewById(R.id.registerButton);
+        CalendarView datePicker = view.findViewById(R.id.datePickerBookingFrament);
+        String date;
+        Spinner timeSpinner = view.findViewById(R.id.timeSpinner);
+        String timeOfDay = timeSpinner.getSelectedItem().toString();
+
+
+        registerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Lấy thời gian hiện tại từ datePicker
+                long currentTimeMillis = datePicker.getDate();
+
+                // Chuyển đổi thời gian thành đối tượng Calendar
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTimeInMillis(currentTimeMillis);
+
+                // Định dạng ngày tháng năm thành chuỗi
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+                String dateString = dateFormat.format(calendar.getTime());
+
+                String timeOfDay = timeSpinner.getSelectedItem().toString();
+
+                Toasty.success(getContext(), timeOfDay + "---" + dateString, Toasty.LENGTH_SHORT).show();
+            }
+        });
 
         return view;
     }

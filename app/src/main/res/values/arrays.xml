@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="time_entries">
-        <item>Sáng(8h30 -> 11h)</item>
-        <item>Chiều(2h ->4h30)</item>
+        <item>Buổi sáng (8h30 - 11h)</item>
+        <item>Buổi chiều (14h - 16h30)</item>
     </string-array>
 </resources>

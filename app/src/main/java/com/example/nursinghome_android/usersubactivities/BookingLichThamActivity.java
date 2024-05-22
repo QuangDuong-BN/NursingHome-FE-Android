@@ -22,9 +22,6 @@ import com.google.android.material.tabs.TabLayout;
 
 public class BookingLichThamActivity extends AppCompatActivity {
     private Toolbar toolbar;
-//    private CalendarView datePicker;
-//    private Spinner timeSpinner;
-//    private Button registerButton;
     private TabLayout tabLayout;
     private ViewPager viewPager;
     @Override
@@ -51,21 +48,7 @@ public class BookingLichThamActivity extends AppCompatActivity {
         ViewPagerAdapter1 viewPagerAdapter1 = new ViewPagerAdapter1(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         viewPager.setAdapter(viewPagerAdapter1);
         tabLayout.setupWithViewPager(viewPager);
-//        datePicker = findViewById(R.id.datePicker);
-//        timeSpinner = findViewById(R.id.timeSpinner);
-//        registerButton = findViewById(R.id.registerButton);
-//
-//        ArrayAdapter<CharSequence> timeAdapter = ArrayAdapter.createFromResource(this,
-//                R.array.time_entries, android.R.layout.simple_spinner_item);
-//        timeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        timeSpinner.setAdapter(timeAdapter);
-//
-//        registerButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                registerAppointment();
-//            }
-//        });
+
     }
 
     @Override
@@ -77,8 +60,5 @@ public class BookingLichThamActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void registerAppointment() {
-
-    }
 
 }
