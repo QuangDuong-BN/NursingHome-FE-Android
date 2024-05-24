@@ -144,9 +144,9 @@
         <Button
             android:id="@+id/buttonChangePasswordChinhSuaThongTinTaiKhoan"
             android:layout_width="match_parent"
+            android:backgroundTint="@color/backgroudcutom"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:backgroundTint="#D5C3C3"
             android:text="Thay đổi mật khẩu"
             android:textColor="@color/colorPrimary"
             android:textSize="20sp" />

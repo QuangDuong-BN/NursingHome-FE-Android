@@ -43,10 +43,7 @@ public class MainMainActivity extends AppCompatActivity {
                         rePlace(new InfoBlankFragment());
                         window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
                         break;
-//                    case 2:
-//                        rePlace(new NotiBlankFragment());
-//                        window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
-//                        break;
+
                     case 2:
                         rePlace(new SettingBlankFragment());
                         window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));

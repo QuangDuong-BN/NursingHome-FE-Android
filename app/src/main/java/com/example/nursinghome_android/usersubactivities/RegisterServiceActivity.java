@@ -3,7 +3,9 @@ package com.example.nursinghome_android.usersubactivities;
 import static com.example.nursinghome_android.valueStatic.BaseURL.baseURL;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -20,8 +22,10 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.nursinghome_android.MainMainActivity;
 import com.example.nursinghome_android.R;
 import com.example.nursinghome_android.enumcustom.RoomType;
+import com.example.nursinghome_android.mainactivity.LoginActivity;
 import com.example.nursinghome_android.valueStatic.BookingInfo;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -36,6 +40,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import es.dmoral.toasty.Toasty;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -394,6 +399,7 @@ public class RegisterServiceActivity extends AppCompatActivity {
     }
 
     public void registerService() {
+
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         Toasty.info(RegisterServiceActivity.this,
                 BookingInfo.roomIdFk + "\n" +
@@ -410,7 +416,7 @@ public class RegisterServiceActivity extends AppCompatActivity {
         JSONObject jsonBody = new JSONObject();
         try {
             jsonBody.put("userIdFk", BookingInfo.userIdFk);
-            jsonBody.put("roomIdFk", BookingInfo.roomIdFk);
+            jsonBody.put("serviceInfoIdFk", BookingInfo.roomIdFk);
             jsonBody.put("bedIdFk", BookingInfo.bedIdFk);
             jsonBody.put("productionDate", BookingInfo.productionDate);
             jsonBody.put("expirationDate", BookingInfo.expirationDate);
@@ -438,7 +444,15 @@ public class RegisterServiceActivity extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+//                            SweetAlertDialog pDialog = new SweetAlertDialog(getApplicationContext(), SweetAlertDialog.SUCCESS_TYPE);
+//                            pDialog.getProgressHelper().setBarColor(Color.parseColor("#0091c1"));
+//                            pDialog.setTitleText("Đăng kí thành công!");
+//                            pDialog.setCancelable(true);
+//                            pDialog.show();
                             Toast.makeText(RegisterServiceActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), MainMainActivity.class);
+                            startActivity(intent);
+                            finish();
                         }
                     });
 

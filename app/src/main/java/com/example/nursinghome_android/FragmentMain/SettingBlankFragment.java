@@ -94,6 +94,7 @@ public class SettingBlankFragment extends Fragment {
 
             Intent intent = new Intent(getActivity(), LoginActivity.class);
             startActivity(intent);
+            getActivity().finish();
         });
 
 

@@ -81,4 +81,6 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.0.0"))
 
     implementation("com.onesignal:OneSignal:[5.0.0, 5.99.99]")
+
+    implementation("com.github.f0ris.sweetalert:library:1.6.2")
 }

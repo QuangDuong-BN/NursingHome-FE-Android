@@ -16,7 +16,6 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.example.nursinghome_android.R;
-import com.example.nursinghome_android.config.LoadingDialog;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -99,12 +98,12 @@ public class ActionBlankFragment extends Fragment {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
         String dateString = dateFormat.format(calendar.getTime());
         TextView tvdateOfAction = view.findViewById(R.id.tvdateOfAction);
-        tvdateOfAction.setText("Hoạt động ngày: " +dateString);
+        tvdateOfAction.setText("Hoạt động ngày: " + dateString);
 
         callApiSetTextActionFragment(dateString, view);
 
         datePicker.setOnDateChangeListener((view1, year, month, dayOfMonth) -> {
-            String date = year + "-" + (month + 1) + "-" + dayOfMonth;
+            String date = year + "-" + String.format("%02d", (month + 1)) + "-" + dayOfMonth;
             CardView cardViewMorning = view.findViewById(R.id.cardViewMorning);
             CardView cardViewAfternoon = view.findViewById(R.id.cardViewAfternoon);
             cardViewMorning.setVisibility(CardView.INVISIBLE);
@@ -115,7 +114,7 @@ public class ActionBlankFragment extends Fragment {
                 cardViewAfternoon.setVisibility(CardView.VISIBLE);
             }, 100);
 
-            tvdateOfAction.setText("Hoạt động ngày: " +date);
+            tvdateOfAction.setText("Hoạt động ngày: " + date);
             callApiSetTextActionFragment(date, view);
 
         });

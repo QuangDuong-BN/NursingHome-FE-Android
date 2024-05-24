@@ -41,12 +41,12 @@ public class DocterAndNurseActivity extends AppCompatActivity {
                         break;
                     case 1:
                         rePlace(new InfoBlankFragment());
+                        window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
                         break;
+
                     case 2:
-                        rePlace(new NotiBlankFragment());
-                        break;
-                    case 3:
                         rePlace(new SettingBlankFragment());
+                        window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
                         break;
                 }
                 return false;

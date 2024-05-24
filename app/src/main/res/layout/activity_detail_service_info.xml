@@ -15,122 +15,138 @@
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
 
         <TextView
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Chi tiết dịch vụ"
             android:textColor="@color/colorPrimary"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tên dịch vụ"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            android:layout_margin="20dp"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textViewNameService"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="15dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Đối tượng tham gia"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tên dịch vụ"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textViewParticipantDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="15dp" />
+            <TextView
+                android:id="@+id/textViewNameService"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tiện ích"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Đối tượng tham gia"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textViewAmenities"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="15dp" />
+            <TextView
+                android:id="@+id/textViewParticipantDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Chế độ dinh dưỡng"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tiện ích"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textViewNutritionMode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="15dp" />
+            <TextView
+                android:id="@+id/textViewAmenities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Chế độ chăm sóc"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chế độ dinh dưỡng"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textViewCareRegimen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="15dp" />
+            <TextView
+                android:id="@+id/textViewNutritionMode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hoạt động cộng đồng"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chế độ chăm sóc"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textViewCommunityActivities"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="15dp" />
+            <TextView
+                android:id="@+id/textViewCareRegimen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
 
-        <ImageView
-            android:id="@+id/imageViewPrice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scaleType="fitStart"
-            android:src="@drawable/aaaa" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hoạt động cộng đồng"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/buttonRegisterService"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Đăng kí ngay" />
+            <TextView
+                android:id="@+id/textViewCommunityActivities"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp" />
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bảng giá"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+            <ImageView
+                android:layout_marginTop="10dp"
+                android:id="@+id/imageViewPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitStart"
+                android:src="@drawable/aaaa" />
 
+            <Button
+                android:id="@+id/buttonRegisterService"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:text="Đăng kí ngay" />
+
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
