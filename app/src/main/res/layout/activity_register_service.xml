@@ -21,8 +21,8 @@
             android:layout_gravity="center"
             android:text="Đăng kí dịch vụ"
             android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -39,8 +39,8 @@
             android:layout_marginBottom="16dp"
             android:hint="Ngày bắt đầu"
             app:boxBackgroundColor="@android:color/transparent"
-            app:boxStrokeColor="@color/green"
-            app:hintTextColor="@color/green">
+            app:boxStrokeColor="@color/colorPrimary"
+            app:hintTextColor="@color/colorPrimary">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextProductionDate"
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="none"
                 android:padding="12dp"
-                android:textColor="@color/green" />
+                android:textColor="@color/colorPrimary" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -58,8 +58,8 @@
             android:layout_marginBottom="16dp"
             android:hint="Ngày kết thúc"
             app:boxBackgroundColor="@android:color/transparent"
-            app:boxStrokeColor="@color/green"
-            app:hintTextColor="@color/green">
+            app:boxStrokeColor="@color/colorPrimary"
+            app:hintTextColor="@color/colorPrimary">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextExpirationDate"
@@ -67,8 +67,9 @@
                 android:layout_height="wrap_content"
                 android:inputType="none"
                 android:padding="12dp"
-                android:textColor="@color/green" />
+                android:textColor="@color/colorPrimary" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <Spinner
             android:id="@+id/spinnerRoomType"
             android:layout_width="match_parent"
@@ -91,10 +92,11 @@
             android:id="@+id/buttonRegisterService"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@color/green"
             android:layout_margin="30dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/custom_button"
             android:text="Đăng kí"
+            android:textSize="20dp"
             android:textColor="@color/white" />
 
     </LinearLayout>

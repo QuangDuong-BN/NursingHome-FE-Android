@@ -27,7 +27,8 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="2dp">
 
@@ -40,7 +41,7 @@
                     android:gravity="center"
 
                     android:padding="5dp"
-                    android:text="Hoạt động ngay"
+                    android:text="Hoạt động ngày"
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -62,8 +63,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_custom"
-                    android:orientation="horizontal"
-                    android:padding="5dp">
+                    android:orientation="horizontal">
 
 
                     <LinearLayout
@@ -72,9 +72,8 @@
                         android:orientation="vertical">
 
                         <androidx.cardview.widget.CardView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
                             app:cardCornerRadius="8dp"
                             app:cardElevation="2dp">
 
@@ -83,9 +82,10 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:background="@color/colorPrimary"
-                                android:gravity="left"
+                                android:gravity="center"
+
                                 android:padding="5dp"
-                                android:text="Hoạt động bữa sáng"
+                                android:text="Hoạt động buổi sáng"
                                 android:textColor="@color/white"
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
@@ -134,17 +134,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_custom"
-                    android:orientation="horizontal"
-                    android:padding="5dp">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        app:cardCornerRadius="8dp"
-                        app:cardElevation="2dp">
-                    </androidx.cardview.widget.CardView>
-
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -152,9 +142,8 @@
                         android:orientation="vertical">
 
                         <androidx.cardview.widget.CardView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
                             app:cardCornerRadius="8dp"
                             app:cardElevation="2dp">
 
@@ -163,7 +152,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:background="@color/colorPrimary"
-                                android:gravity="left"
+                                android:gravity="center"
                                 android:padding="5dp"
                                 android:text="Hoạt động buổi chiều"
                                 android:textColor="@color/white"

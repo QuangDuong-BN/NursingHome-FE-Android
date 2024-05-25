@@ -19,6 +19,7 @@ import com.example.nursinghome_android.ListViewSetUp.DropdownAdapterLichSuDangKi
 import com.example.nursinghome_android.ListViewSetUp.DropdownAdapterServiceInfo;
 import com.example.nursinghome_android.R;
 import com.example.nursinghome_android.entityDTO.ServiceInfoforListServiceInfoDTO;
+import com.example.nursinghome_android.valueStatic.ServiceRecord;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -123,6 +124,6 @@ public class LichSuDangKiDichVu extends AppCompatActivity implements DropdownAda
     public void onItemClick(Long id) {
 
         Toasty.info(LichSuDangKiDichVu.this, "Chức năng xem chi tiết sẽ được cập nhật sau!", Toasty.LENGTH_SHORT).show();
-
+        ServiceRecord.id = id;
     }
 }

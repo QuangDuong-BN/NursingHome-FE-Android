@@ -10,7 +10,7 @@
         android:id="@+id/toolbarDetailServiceInfo"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/white"
+        android:background="@color/colorPrimary"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
 
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Chi tiết dịch vụ"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -52,6 +52,11 @@
 
             <TextView
                 android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimary" />
+
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Đối tượng tham gia"
                 android:textColor="@color/colorPrimary"
@@ -63,6 +68,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimary" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -80,6 +90,11 @@
 
             <TextView
                 android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimary" />
+
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Chế độ dinh dưỡng"
                 android:textColor="@color/colorPrimary"
@@ -91,6 +106,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimary" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -108,6 +128,11 @@
 
             <TextView
                 android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimary" />
+
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Hoạt động cộng đồng"
                 android:textColor="@color/colorPrimary"
@@ -122,28 +147,34 @@
 
             <TextView
                 android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimary" />
+
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Bảng giá"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20dp"
                 android:textStyle="bold" />
+
             <ImageView
-                android:layout_marginTop="10dp"
                 android:id="@+id/imageViewPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:scaleType="fitStart"
                 android:src="@drawable/aaaa" />
 
             <Button
                 android:id="@+id/buttonRegisterService"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="40dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textSize="20sp"
-                android:text="Đăng kí ngay" />
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="40dp"
+                android:text="Đăng kí ngay"
+                android:textSize="20sp" />
 
 
         </LinearLayout>

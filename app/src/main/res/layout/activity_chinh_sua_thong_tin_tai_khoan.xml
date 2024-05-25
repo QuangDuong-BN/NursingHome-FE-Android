@@ -144,15 +144,18 @@
         <Button
             android:id="@+id/buttonChangePasswordChinhSuaThongTinTaiKhoan"
             android:layout_width="match_parent"
-            android:backgroundTint="@color/backgroudcutom"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/custom_buttom_1"
             android:text="Thay đổi mật khẩu"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp" />
+            android:textSize="20dp" />
 
         <Button
             android:id="@+id/buttonSaveChinhSuaThongTinTaiKhoan"
+            android:layout_margin="20dp"
+            android:background="@drawable/custom_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Lưu thông tin"

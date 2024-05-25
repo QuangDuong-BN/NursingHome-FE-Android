@@ -4,6 +4,7 @@ import static android.content.Context.MODE_PRIVATE;
 import static com.example.nursinghome_android.valueStatic.BaseURL.baseURL;
 
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -80,7 +81,12 @@ public class ActionBlankFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+// Đặt ngôn ngữ của ứng dụng thành tiếng Việt
+        Locale locale = new Locale("vi");
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getResources().updateConfiguration(config, getResources().getDisplayMetrics());
         CalendarView datePicker;
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_action_blank, container, false);

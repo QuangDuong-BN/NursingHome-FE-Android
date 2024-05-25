@@ -102,6 +102,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/background_custom"
                 android:orientation="horizontal">
 
 
@@ -220,6 +221,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/background_custom"
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
@@ -266,7 +268,7 @@
                             android:layout_marginStart="10dp"
                             android:gravity="left"
                             android:text="Trung tâm cung cấp các gói dịch vụ đa dạng, cùng hệ thống trang thiết bị hiện đại"
-                            android:textColor="#AAAAAA"
+                            android:textColor="@color/black"
                             android:textSize="15sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -290,6 +292,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/background_custom"
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
@@ -334,7 +337,7 @@
                             android:layout_marginStart="10dp"
                             android:gravity="left"
                             android:text="Đặt lịch thăm nhanh chóng, tiện lợi, không cần phải đến trực tiếp, tiết kiệm thời gian"
-                            android:textColor="#AAAAAA"
+                            android:textColor="@color/black"
                             android:textSize="15sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -358,6 +361,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/background_custom"
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
@@ -402,7 +406,7 @@
                             android:layout_marginStart="10dp"
                             android:gravity="left"
                             android:text="Theo dõi tình trạng sức khỏe người thân một cách chính xác, kịp thời"
-                            android:textColor="#AAAAAA"
+                            android:textColor="@color/black"
                             android:textSize="15sp" />
                     </LinearLayout>
                 </LinearLayout>
