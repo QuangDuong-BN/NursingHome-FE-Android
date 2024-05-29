@@ -450,7 +450,7 @@ public class RegisterServiceActivity extends AppCompatActivity {
 //                            pDialog.setCancelable(true);
 //                            pDialog.show();
                             Toast.makeText(RegisterServiceActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), MainMainActivity.class);
+                            Intent intent = new Intent(RegisterServiceActivity.this, VNPayActivity.class);
                             startActivity(intent);
                             finish();
                         }
@@ -470,6 +470,5 @@ public class RegisterServiceActivity extends AppCompatActivity {
             }
         });
     }
-
 
 }

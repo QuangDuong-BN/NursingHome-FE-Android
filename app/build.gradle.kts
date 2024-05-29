@@ -83,4 +83,6 @@ dependencies {
     implementation("com.onesignal:OneSignal:[5.0.0, 5.99.99]")
 
     implementation("com.github.f0ris.sweetalert:library:1.6.2")
+
+    implementation("com.stripe:stripe-android:20.44.0")
 }

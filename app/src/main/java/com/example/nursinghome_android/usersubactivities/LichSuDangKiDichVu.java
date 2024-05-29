@@ -2,6 +2,7 @@ package com.example.nursinghome_android.usersubactivities;
 
 import static com.example.nursinghome_android.valueStatic.BaseURL.baseURL;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -16,9 +17,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.nursinghome_android.ListViewSetUp.DropdownAdapterLichSuDangKiDichVu;
 
-import com.example.nursinghome_android.ListViewSetUp.DropdownAdapterServiceInfo;
 import com.example.nursinghome_android.R;
-import com.example.nursinghome_android.entityDTO.ServiceInfoforListServiceInfoDTO;
 import com.example.nursinghome_android.valueStatic.ServiceRecord;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -78,7 +77,7 @@ public class LichSuDangKiDichVu extends AppCompatActivity implements DropdownAda
                 if (response.isSuccessful()) {
                     // Xử lý dữ liệu trả về
                     String result = response.body().string();
-                    mDropdownItems = parseJsonToServiceInfoList(result);
+                    mDropdownItems = parseJsonToListObject(result);
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -113,7 +112,7 @@ public class LichSuDangKiDichVu extends AppCompatActivity implements DropdownAda
 
 
 
-    public static List<Object[]> parseJsonToServiceInfoList(String jsonString) {
+    public static List<Object[]> parseJsonToListObject(String jsonString) {
         Gson gson = new Gson();
         Type listType = new TypeToken<List<Object[]>>() {
         }.getType();
@@ -122,8 +121,9 @@ public class LichSuDangKiDichVu extends AppCompatActivity implements DropdownAda
 
     @Override
     public void onItemClick(Long id) {
-
-        Toasty.info(LichSuDangKiDichVu.this, "Chức năng xem chi tiết sẽ được cập nhật sau!", Toasty.LENGTH_SHORT).show();
         ServiceRecord.id = id;
+        Intent intent = new Intent(LichSuDangKiDichVu.this, DetailServiceRecordActivity.class);
+        startActivity(intent);
     }
+
 }
