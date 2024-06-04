@@ -1,6 +1,5 @@
 package com.example.nursinghome_android;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.view.Window;
 
@@ -8,10 +7,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.nursinghome_android.FragmentMain.HomeBlankFragment;
-import com.example.nursinghome_android.FragmentMain.InfoBlankFragment;
-import com.example.nursinghome_android.FragmentMain.NotiBlankFragment;
-import com.example.nursinghome_android.FragmentMain.SettingBlankFragment;
+import com.example.nursinghome_android.FragmentUser.HomeBlankFragment;
+import com.example.nursinghome_android.FragmentUser.InfoBlankFragment;
+import com.example.nursinghome_android.FragmentUser.SettingBlankFragment;
 
 import me.ibrahimsn.lib.OnItemSelectedListener;
 import me.ibrahimsn.lib.SmoothBottomBar;

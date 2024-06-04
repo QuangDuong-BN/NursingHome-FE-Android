@@ -1,4 +1,4 @@
-package com.example.nursinghome_android.FragmentMain;
+package com.example.nursinghome_android.FragmentUser;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

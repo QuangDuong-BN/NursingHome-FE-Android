@@ -3,7 +3,6 @@ package com.example.nursinghome_android.mainactivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -16,7 +15,6 @@ import com.example.nursinghome_android.config.LoadingDialog;
 import com.example.nursinghome_android.enumcustom.RoleUser;
 import com.example.nursinghome_android.valueStatic.BaseURL;
 import com.google.android.material.textfield.TextInputEditText;
-import com.zegocloud.zimkit.services.ZIMKit;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -109,10 +107,7 @@ public class LoginActivity extends AppCompatActivity {
                             Intent intent = new Intent(LoginActivity.this, DocterAndNurseActivity.class);
                             startActivity(intent);
                             finish();
-                        } else if (roleUser.equals(RoleUser.COOK) || roleUser.equals(RoleUser.CLEANER)) {
-                            Intent intent = new Intent(LoginActivity.this, CookAndCleanerActivity.class);
-                            startActivity(intent);
-                            finish();
+
                         } else if (roleUser.equals(RoleUser.ADMIN)) {
                             Intent intent = new Intent(LoginActivity.this, MainMainActivity.class);
                             startActivity(intent);
@@ -212,10 +207,6 @@ public class LoginActivity extends AppCompatActivity {
                             finish();
                         } else if (roleUser.equals(RoleUser.DOCTOR) || roleUser.equals(RoleUser.NURSE)) {
                             Intent intent = new Intent(LoginActivity.this, DocterAndNurseActivity.class);
-                            startActivity(intent);
-                            finish();
-                        } else if (roleUser.equals(RoleUser.COOK) || roleUser.equals(RoleUser.CLEANER)) {
-                            Intent intent = new Intent(LoginActivity.this, CookAndCleanerActivity.class);
                             startActivity(intent);
                             finish();
                         } else if (roleUser.equals(RoleUser.ADMIN)) {

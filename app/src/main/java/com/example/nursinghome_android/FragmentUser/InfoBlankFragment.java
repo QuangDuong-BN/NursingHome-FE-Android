@@ -1,4 +1,4 @@
-package com.example.nursinghome_android.FragmentMain;
+package com.example.nursinghome_android.FragmentUser;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,8 +17,6 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.nursinghome_android.R;
 import com.example.nursinghome_android.chatrealtime.MyZIMKitActivity;
 import com.example.nursinghome_android.valueStatic.ChatID;
-import com.zegocloud.zimkit.common.ZIMKitRouter;
-import com.zegocloud.zimkit.common.enums.ZIMKitConversationType;
 
 
 /**

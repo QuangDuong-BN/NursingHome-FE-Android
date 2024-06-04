@@ -72,7 +72,6 @@ public class MyZIMKitActivity extends AppCompatActivity {
                 // Operation after successful login. You will be redirected to other modules only after successful login. In this sample code, you will be redirected to the conversation module.
                 toConversationActivity();
             } else {
-
             }
         });
     }

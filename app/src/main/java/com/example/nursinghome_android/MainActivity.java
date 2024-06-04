@@ -16,7 +16,6 @@ import android.widget.TextView;
 
 import com.example.nursinghome_android.config.LoadingDialog;
 import com.example.nursinghome_android.enumcustom.RoleUser;
-import com.example.nursinghome_android.mainactivity.CookAndCleanerActivity;
 import com.example.nursinghome_android.mainactivity.DocterAndNurseActivity;
 import com.example.nursinghome_android.mainactivity.LoginActivity;
 import com.example.nursinghome_android.valueStatic.BaseURL;

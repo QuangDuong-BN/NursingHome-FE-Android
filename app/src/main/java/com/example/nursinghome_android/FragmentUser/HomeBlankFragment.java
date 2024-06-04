@@ -1,4 +1,4 @@
-package com.example.nursinghome_android.FragmentMain;
+package com.example.nursinghome_android.FragmentUser;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -23,7 +23,6 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.nursinghome_android.ListUserActivity.ListUserActivity;
 import com.example.nursinghome_android.R;
-import com.example.nursinghome_android.subactivities.SettingUserActivity;
 import com.example.nursinghome_android.valueStatic.ChooseFuture;
 
 /**
@@ -86,7 +85,7 @@ public class HomeBlankFragment extends Fragment {
 
         SharedPreferences prefs1 = getActivity().getSharedPreferences("MyPrefs", MODE_PRIVATE);
 
-        String name = prefs1.getString("name", "@drawable/chandung1");
+        String name = prefs1.getString("name", "null");
         textViewUserName = view.findViewById(R.id.textViewUserName);
         textViewUserName.setText("Xin chào, " + name);
 

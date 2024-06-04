@@ -8,10 +8,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.Window;
 
-import com.example.nursinghome_android.FragmentMain.HomeBlankFragment;
-import com.example.nursinghome_android.FragmentMain.InfoBlankFragment;
-import com.example.nursinghome_android.FragmentMain.NotiBlankFragment;
-import com.example.nursinghome_android.FragmentMain.SettingBlankFragment;
+import com.example.nursinghome_android.FragmentUser.HomeBlankFragment;
+import com.example.nursinghome_android.FragmentUser.InfoBlankFragment;
+import com.example.nursinghome_android.FragmentUser.SettingBlankFragment;
 import com.example.nursinghome_android.R;
 
 import me.ibrahimsn.lib.OnItemSelectedListener;
@@ -41,12 +40,10 @@ public class DocterAndNurseActivity extends AppCompatActivity {
                         break;
                     case 1:
                         rePlace(new InfoBlankFragment());
-                        window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
                         break;
 
                     case 2:
                         rePlace(new SettingBlankFragment());
-                        window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
                         break;
                 }
                 return false;
