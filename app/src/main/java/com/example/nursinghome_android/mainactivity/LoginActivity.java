@@ -15,6 +15,7 @@ import com.example.nursinghome_android.config.LoadingDialog;
 import com.example.nursinghome_android.enumcustom.RoleUser;
 import com.example.nursinghome_android.valueStatic.BaseURL;
 import com.google.android.material.textfield.TextInputEditText;
+import com.zegocloud.zimkit.services.ZIMKit;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -39,11 +40,11 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        Long appId = 1643629424L;    // The AppID you get from ZEGOCLOUD Admin Console.
-//        String appSign = "f648f9982a76de835b9a988cad8621e4c88a7a6cdf9bf36694dfb55bd684fe6c";    // The App Sign you get from ZEGOCLOUD Admin Console.
-//        ZIMKit.initWith(getApplication(), appId, appSign);
-//        // Online notification for the initialization (use the following code if this is needed).
-//        ZIMKit.initNotifications();
+        Long appId = 933237909L;    // The AppID you get from ZEGOCLOUD Admin Console.
+        String appSign = "6ff124e9cae0423d8d3e38af1edfe2a4240d35c1b3c21245277e712e4a8a0ed3";    // The App Sign you get from ZEGOCLOUD Admin Console.
+        ZIMKit.initWith(getApplication(), appId, appSign);
+        // Online notification for the initialization (use the following code if this is needed).
+        ZIMKit.initNotifications();
 
         SharedPreferences prefs1 = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = getSharedPreferences("MyPrefs", MODE_PRIVATE).edit();

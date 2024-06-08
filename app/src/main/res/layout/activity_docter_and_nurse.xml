@@ -8,14 +8,14 @@
     tools:context=".mainactivity.DocterAndNurseActivity">
 
     <FrameLayout
-        android:id="@+id/Fragment_main"
+        android:id="@+id/Fragment_main_Docter"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
         android:layout_weight="1" />
 
     <me.ibrahimsn.lib.SmoothBottomBar
-        android:id="@+id/bottomBar"
+        android:id="@+id/bottomBar_Docter"
         android:layout_width="match_parent"
         android:layout_height="115dp"
         android:layout_weight="1"

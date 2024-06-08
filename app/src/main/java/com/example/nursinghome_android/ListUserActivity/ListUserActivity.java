@@ -20,11 +20,11 @@ import com.example.nursinghome_android.ListViewSetUp.DropdownAdapterUser;
 import com.example.nursinghome_android.R;
 import com.example.nursinghome_android.config.LoadingDialog;
 import com.example.nursinghome_android.entityDTO.UserItemforListUserDTO;
+import com.example.nursinghome_android.enumcustom.RoleUser;
 import com.example.nursinghome_android.usersubactivities.AddUser2Activity;
 import com.example.nursinghome_android.usersubactivities.BookingLichThamActivity;
 import com.example.nursinghome_android.usersubactivities.CaiDatThongTinNguoiThanActivity;
 import com.example.nursinghome_android.usersubactivities.ChooseHealtyOrMealPlan;
-import com.example.nursinghome_android.usersubactivities.Healthactivity;
 import com.example.nursinghome_android.usersubactivities.ListServiceInfoActivity;
 import com.example.nursinghome_android.usersubactivities.MealPlanActivity;
 import com.example.nursinghome_android.valueStatic.BookingInfo;
@@ -80,16 +80,31 @@ public class ListUserActivity extends AppCompatActivity implements DropdownAdapt
             }
         });
 
+
+
         LoadingDialog loadingDialog = new LoadingDialog(ListUserActivity.this);
         loadingDialog.startLoadingDialog();
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         String token = prefs.getString("token", null);
 
-        // Tạo yêu cầu GET
-        Request request = new Request.Builder()
-                .url(baseURL + "/user/get_list_user_by_family_member")
-                .addHeader("Authorization", "Bearer " + token)
-                .build();
+        SharedPreferences prefs1 = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+
+        String role = prefs1.getString("role", "null");
+        Request request;
+        if (role.equals(RoleUser.DOCTOR.toString()) || role.equals(RoleUser.NURSE.toString())){
+            // Tạo yêu cầu GET
+            fab.setVisibility(View.GONE);
+            request = new Request.Builder()
+                    .url(baseURL + "/assignments/get_list_user_by_docter")
+                    .addHeader("Authorization", "Bearer " + token)
+                    .build();
+        }
+        else {
+            request = new Request.Builder()
+                    .url(baseURL + "/user/get_list_user_by_family_member")
+                    .addHeader("Authorization", "Bearer " + token)
+                    .build();
+        }
 
         // Tạo OkHttpClient
         OkHttpClient client = new OkHttpClient();

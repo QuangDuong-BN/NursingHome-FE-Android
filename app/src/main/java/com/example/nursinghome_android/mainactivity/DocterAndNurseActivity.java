@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.Window;
 
+import com.example.nursinghome_android.FragmentDocter.DocterHomeFragment;
 import com.example.nursinghome_android.FragmentUser.HomeBlankFragment;
 import com.example.nursinghome_android.FragmentUser.InfoBlankFragment;
 import com.example.nursinghome_android.FragmentUser.SettingBlankFragment;
@@ -29,14 +30,14 @@ public class DocterAndNurseActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
         }
-        rePlace(new HomeBlankFragment());
-        smoothBottomBar = findViewById(R.id.bottomBar);
+        rePlace(new DocterHomeFragment());
+        smoothBottomBar = findViewById(R.id.bottomBar_Docter);
         smoothBottomBar.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
             public boolean onItemSelect(int i) {
                 switch (i) {
                     case 0:
-                        rePlace(new HomeBlankFragment());
+                        rePlace(new DocterHomeFragment());
                         break;
                     case 1:
                         rePlace(new InfoBlankFragment());
@@ -52,7 +53,7 @@ public class DocterAndNurseActivity extends AppCompatActivity {
     }
     private void rePlace(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.Fragment_main, fragment);
+        transaction.replace(R.id.Fragment_main_Docter, fragment);
         transaction.commit();
     }
 }

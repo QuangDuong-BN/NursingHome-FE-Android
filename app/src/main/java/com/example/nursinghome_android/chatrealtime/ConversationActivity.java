@@ -3,6 +3,7 @@ package com.example.nursinghome_android.chatrealtime;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Application;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.nursinghome_android.R;
@@ -27,16 +28,17 @@ public class ConversationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_conversation);
         Application application = getApplication(); // Android's application context
 
-//        Long appID = 949308766L;   // yourAppID
-//        String appSign ="ed672560f0c6413248f865b7adf9b5bc15c871f6f6a63cfb8bdb4254bd8f484f";  // yourAppSign
-//        String userID ="duong123"; // yourUserID, userID should only contain numbers, English characters, and '_'.
-//        String userName ="Quang Duong";   // yourUserName
+        SharedPreferences prefs1 = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+
+        String userId = prefs1.getString("email", "null");; // Your ID as a user.
+        String userName = prefs1.getString("name", "null");
+        String userAvatar =prefs1.getString("imageUrl", "null");
+
+        String appSign ="6ff124e9cae0423d8d3e38af1edfe2a4240d35c1b3c21245277e712e4a8a0ed3";  // yourAppSign
+        Long appID = 933237909L;   // yourAppID
 //
-////        String userID = "bacsi1"; // Your ID as a user.
-////        String userName = " Bs Dũng"; // You name as a user.
-//
-//        ZegoUIKitPrebuiltCallInvitationConfig callInvitationConfig = new ZegoUIKitPrebuiltCallInvitationConfig();
-//        ZegoUIKitPrebuiltCallInvitationService.init(getApplication(), appID, appSign, userID, userName, callInvitationConfig);
+        ZegoUIKitPrebuiltCallInvitationConfig callInvitationConfig = new ZegoUIKitPrebuiltCallInvitationConfig();
+        ZegoUIKitPrebuiltCallInvitationService.init(getApplication(), appID, appSign, userId, userName, callInvitationConfig);
         ZIMKit.registerMessageListListener(new ZIMKitMessagesListListener() {
             @Override
             public ZIMKitHeaderBar getMessageListHeaderBar(ZIMKitMessageFragment fragment) {
@@ -58,7 +60,9 @@ public class ConversationActivity extends AppCompatActivity {
             }
         });
 
-        startSingleChat(ChatID.chatID);
+        startSingleChat("duongct4b@gmail.com");
+//        startSingleChat("manhdung@gmail.com");
+
     }
     private void startSingleChat(String userId){
 

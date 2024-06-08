@@ -232,11 +232,8 @@ public class MainActivity extends AppCompatActivity {
                             Intent intent = new Intent(MainActivity.this, DocterAndNurseActivity.class);
                             startActivity(intent);
                             finish();
-                        } else if (roleUser.equals(RoleUser.COOK) || roleUser.equals(RoleUser.CLEANER)) {
-                            Intent intent = new Intent(MainActivity.this, CookAndCleanerActivity.class);
-                            startActivity(intent);
-                            finish();
-                        } else if (roleUser.equals(RoleUser.ADMIN)) {
+                        }
+                         else if (roleUser.equals(RoleUser.ADMIN)) {
                             Intent intent = new Intent(MainActivity.this, MainMainActivity.class);
                             startActivity(intent);
                             finish();

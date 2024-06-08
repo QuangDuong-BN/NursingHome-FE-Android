@@ -2,6 +2,7 @@ package com.example.nursinghome_android.chatrealtime;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.nursinghome_android.R;
@@ -45,9 +46,11 @@ public class MyZIMKitActivity extends AppCompatActivity {
 //        String userAvatar ="https://afamilycdn.com/150157425591193600/2023/2/24/ltt5998090128-01-16770559389571071835014-1677222250874-16772222511521048969129.jpg"; // The image you set as the user avatar must be network image. e.g., https://storage.zego.im/IMKit/avatar/avatar-0.png
 //        connectUser(userId, userName,userAvatar);
 
-        String userId = "duong123"; // Your ID as a user.
-        String userName = "Quang Dương"; // You name as a user.
-        String userAvatar ="http://res.cloudinary.com/djq4zsauv/image/upload/v1712820969/uep2jhlyf4ykelacyngh.png";
+        SharedPreferences prefs1 = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+
+        String userId = prefs1.getString("email", "null");; // Your ID as a user.
+        String userName = prefs1.getString("name", "null");
+        String userAvatar =prefs1.getString("imageUrl", "null");
         connectUser(userId, userName,userAvatar);
 
 
@@ -56,8 +59,8 @@ public class MyZIMKitActivity extends AppCompatActivity {
 //        String userAvatar ="https://res.cloudinary.com/djq4zsauv/image/upload/v1714842868/otp8siickyzt5gcnppga.png";
 //        connectUser(userId, userName,userAvatar);
 
-        String appSign ="ed672560f0c6413248f865b7adf9b5bc15c871f6f6a63cfb8bdb4254bd8f484f";  // yourAppSign
-        Long appID = 949308766L;   // yourAppID
+        String appSign ="6ff124e9cae0423d8d3e38af1edfe2a4240d35c1b3c21245277e712e4a8a0ed3";  // yourAppSign
+        Long appID = 933237909L;   // yourAppID
 
         ZegoUIKitPrebuiltCallInvitationConfig callInvitationConfig = new ZegoUIKitPrebuiltCallInvitationConfig();
         ZegoUIKitPrebuiltCallInvitationService.init(getApplication(), appID, appSign, userId, userName, callInvitationConfig);
