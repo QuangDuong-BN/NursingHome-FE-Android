@@ -493,7 +493,6 @@ public class RegisterServiceActivity extends AppCompatActivity {
                                             sDialog.dismissWithAnimation();
                                             Intent intent = new Intent(RegisterServiceActivity.this, MainMainActivity.class);
                                             startActivity(intent);
-                                            finish();
                                         }
                                     });
 

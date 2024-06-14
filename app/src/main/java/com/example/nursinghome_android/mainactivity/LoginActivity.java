@@ -201,7 +201,7 @@ public class LoginActivity extends AppCompatActivity {
                             @Override
                             public void run() {
                                 Toast.makeText(getApplicationContext(), "Login success", Toast.LENGTH_SHORT).show();
-                                Toast.makeText(getApplicationContext(), roleUser.toString(), Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getApplicationContext(), roleUser.toString(), Toast.LENGTH_SHORT).show();
                             }
                         });
                         if (roleUser.equals(RoleUser.FAMILY_MEMBER)) {

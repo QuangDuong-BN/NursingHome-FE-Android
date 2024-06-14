@@ -1,14 +1,20 @@
 package com.example.nursinghome_android.usersubactivities;
 
+import static com.example.nursinghome_android.valueStatic.BaseURL.baseURL;
+
 import android.app.DatePickerDialog;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.ActionBar;
@@ -17,7 +23,20 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.nursinghome_android.R;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.Calendar;
+
+import es.dmoral.toasty.Toasty;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class AddUser2Activity extends AppCompatActivity {
     private Toolbar toolbar;
@@ -85,10 +104,68 @@ public class AddUser2Activity extends AppCompatActivity {
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                                 // Display the selected date in the EditText
-                                editTextDateOfBirth.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+
+                                String formattedDate = String.format("%d-%02d-%02d", year, monthOfYear + 1, dayOfMonth);
+                                editTextDateOfBirth.setText(formattedDate);
                             }
                         }, mYear, mMonth, mDay);
                 datePickerDialog.show();
+            }
+        });
+
+        Button buttonAddUser2 = findViewById(R.id.buttonAddUser2);
+        buttonAddUser2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Get the values from the input fields
+                String name = ((EditText) findViewById(R.id.editTextName)).getText().toString();
+                String dateOfBirth = ((EditText) findViewById(R.id.editTextDateOfBirth)).getText().toString();
+                String address = ((Spinner) findViewById(R.id.spinnerAddress)).getSelectedItem().toString();
+                String gender = ((RadioButton) findViewById(((RadioGroup) findViewById(R.id.radioGroupGender)).getCheckedRadioButtonId())).getText().toString().equals("Ông") ? "MALE" : "FEMALE";
+
+                // Create a JSON object with these values
+                JSONObject jsonObject = new JSONObject();
+                try {
+                    jsonObject.put("name", name);
+                    jsonObject.put("dateOfBirth", dateOfBirth);
+                    jsonObject.put("address", address);
+                    jsonObject.put("gender", gender);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                String token = prefs.getString("token", null);
+
+                // Create a new OkHttpClient instance
+                OkHttpClient client = new OkHttpClient();
+
+                // Create a new RequestBody with the JSON object and set the media type to JSON
+                RequestBody body = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), jsonObject.toString());
+
+                // Create a new Request with the API URL and the RequestBody
+                Request request = new Request.Builder()
+                        .url(baseURL + "/user/register_for_family_member")
+                        .addHeader("Authorization", "Bearer " + token)
+                        .post(body)
+                        .build();
+
+                // Call the API using the OkHttpClient and handle the response
+                client.newCall(request).enqueue(new Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+                        if (!response.isSuccessful()) {
+                            Toasty.success(AddUser2Activity.this, "Thêm thành viên gia đình thành công", Toasty.LENGTH_SHORT).show();
+                            throw new IOException("Unexpected code " + response);
+                        } else {
+                            // Handle the response
+                        }
+                    }
+                });
             }
         });
 
