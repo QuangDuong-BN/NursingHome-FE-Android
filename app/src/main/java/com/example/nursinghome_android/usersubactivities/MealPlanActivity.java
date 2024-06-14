@@ -1,5 +1,7 @@
 package com.example.nursinghome_android.usersubactivities;
 
+import static com.example.nursinghome_android.valueStatic.BaseURL.baseURL;
+
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.view.Window;
 import android.widget.CalendarView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -19,6 +22,14 @@ import com.example.nursinghome_android.R;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import java.io.IOException;
 
 public class MealPlanActivity extends AppCompatActivity {
     private CalendarView calendarView;
@@ -51,91 +62,92 @@ public class MealPlanActivity extends AppCompatActivity {
         cardViewDinner = findViewById(R.id.cardViewDinner);
         calendarView = findViewById(R.id.datePickerActionFrament);
 
-//        mealsTextView = findViewById(R.id.mealsTextView);
+        calendarView = findViewById(R.id.datePickerActionFrament);
+        // Lấy thời gian hiện tại từ datePicker
+        long currentTimeMillis = calendarView.getDate();
+        // Chuyển đổi thời gian thành đối tượng Calendar
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(currentTimeMillis);
+
+        // Định dạng ngày tháng năm thành chuỗi
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        String dateString = dateFormat.format(calendar.getTime());
+
+        updateMeals(dateString);
+
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                updateMeals(year, month, dayOfMonth);
+                String date = year + "-" + String.format("%02d", (month + 1)) + "-" + dayOfMonth;
+                updateMeals(date);
             }
         });
 
-        // Get the current date
-        Calendar currentCalendar = Calendar.getInstance();
-        int year = currentCalendar.get(Calendar.YEAR);
-        int month = currentCalendar.get(Calendar.MONTH);
-        int day = currentCalendar.get(Calendar.DAY_OF_MONTH);
-
-        // Update meals for the current date
-        updateMeals(year, month, day);
-
     }
 
-    private void updateMeals(int year, int month, int day) {
+    private void updateMeals(String date) {
         cardViewBreakfast.setVisibility(CardView.INVISIBLE);
         cardViewLunch.setVisibility(CardView.INVISIBLE);
         cardViewDinner.setVisibility(CardView.INVISIBLE);
 
-        // Tạo đối tượng Calendar và thiết lập ngày được chọn
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(year, month, day);
 
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         String token = prefs.getString("token", null);
 
-//        // Tạo yêu cầu GET
-//        Request request = new Request.Builder()
-//                .url(baseURL + "/service_info/get_by_id?id=" + BookingInfo.serviceInfoIdFk)
-//                .addHeader("Authorization", "Bearer " + token)
-//                .build();
-//
-//        // Tạo OkHttpClient
-//        OkHttpClient client = new OkHttpClient();
-//        client.newCall(request).enqueue(new Callback() {
-//
-//            @Override
-//            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-//                String result = response.body().string();
-//                runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        try {
-//                            JSONObject jsonResponse = new JSONObject(result);
-//                            Long id = jsonResponse.getLong("id");
-//                            String name = jsonResponse.getString("name");
-//                            String amenities = jsonResponse.getString("amenities");
-//                            String nutritionMode = jsonResponse.getString("nutritionMode");
-//                            String communityActivities = jsonResponse.getString("communityActivities");
-//                            String careRegimen = jsonResponse.getString("careRegimen");
-//                            String stringimageurl = jsonResponse.getString("imageUrlPrice");
-//
-//                        } catch (JSONException e) {
-//                            throw new RuntimeException(e);
-//                        }
-//                    }
-//                });
-//            }
-//
-//            @Override
-//            public void onFailure(@NonNull Call call, @NonNull IOException e) {
-//            }
-//        });
 
-        // Format ngày thành chuỗi để hiển thị
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-        String selectedDate = dateFormat.format(calendar.getTime());
+        Request request = new Request.Builder()
+                .url(baseURL + "/meal_plan/get_by_date?date=" + date)
+                .addHeader("Authorization", "Bearer " + token)
+                .build();
+        OkHttpClient client = new OkHttpClient();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+                e.printStackTrace();
+            }
 
-        // Tạo danh sách mục đồ ăn dựa trên ngày được chọn
-        // Ở đây bạn có thể thay thế bằng mã để lấy dữ liệu từ nguồn dữ liệu thực tế của bạn
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    String responseBody = response.body().string();
+                    try {
+                        // Parse JSON response
+                        JSONArray jsonArray = new JSONArray(responseBody);
+                        if (jsonArray.length() > 0) {
+                            JSONObject mealPlan = jsonArray.getJSONObject(0);
+                            final String breakfast = mealPlan.getString("breakfast");
+                            final String lunch = mealPlan.getString("lunch");
+                            final String dinner = mealPlan.getString("dinner");
 
-        // Ví dụ:
-        // String breakfast = getBreakfast(selectedDate);
-        // String lunch = getLunch(selectedDate);
-        // String dinner = getDinner(selectedDate);
+                            // Update UI on the main thread
+                            runOnUiThread(() -> {
+                                TextView breakfastTextView = findViewById(R.id.tvBreakfast);
+                                TextView lunchTextView = findViewById(R.id.tvLunch);
+                                TextView dinnerTextView = findViewById(R.id.tvDinner);
 
-        // Hiển thị thông tin về xuất ăn trong TextView
-        String mealsText = "Xuất ăn cho ngày " + selectedDate + ":\n"
-                + "Sáng: Bánh mì, Trưa: Cơm gà, Tối: Canh chua";
-//        mealsTextView.setText(mealsText);
+                                breakfastTextView.setText(breakfast);
+                                lunchTextView.setText(lunch);
+                                dinnerTextView.setText(dinner);
+                            });
+                        }
+                        else {
+                            runOnUiThread(() -> {
+                                TextView breakfastTextView = findViewById(R.id.tvBreakfast);
+                                TextView lunchTextView = findViewById(R.id.tvLunch);
+                                TextView dinnerTextView = findViewById(R.id.tvDinner);
+
+                                breakfastTextView.setText("Không có dữ liệu");
+                                lunchTextView.setText("Không có dữ liệu");
+                                dinnerTextView.setText("Không có dữ liệu");
+                            });
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
 
         new Handler().postDelayed(() -> {
             cardViewBreakfast.setVisibility(CardView.VISIBLE);

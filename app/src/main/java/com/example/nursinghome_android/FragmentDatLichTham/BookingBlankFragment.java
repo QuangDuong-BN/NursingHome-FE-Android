@@ -132,7 +132,7 @@ public class BookingBlankFragment extends Fragment {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                Toasty.info(getActivity(), jsonBody.toString(), Toasty.LENGTH_SHORT).show();
+//                Toasty.info(getActivity(), jsonBody.toString(), Toasty.LENGTH_SHORT).show();
 
                 // Tạo request body
                 RequestBody requestBody = RequestBody.create(MediaType.parse("application/json"),

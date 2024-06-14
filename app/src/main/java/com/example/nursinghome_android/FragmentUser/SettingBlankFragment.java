@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -19,6 +20,7 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.nursinghome_android.ListUserActivity.ListUserActivity;
 import com.example.nursinghome_android.R;
+import com.example.nursinghome_android.enumcustom.RoleUser;
 import com.example.nursinghome_android.mainactivity.LoginActivity;
 import com.example.nursinghome_android.usersubactivities.FeedBackActivity;
 import com.example.nursinghome_android.valueStatic.ChooseFuture;
@@ -80,6 +82,7 @@ public class SettingBlankFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_setting_blank, container, false);
         buttonLogin = (Button) view.findViewById(R.id.btnLogout);
+
         buttonLogin.setOnClickListener(v -> {
             SharedPreferences.Editor editor = getActivity().getSharedPreferences("MyPrefs", MODE_PRIVATE).edit();
             editor.putString("token", null);
@@ -105,8 +108,8 @@ public class SettingBlankFragment extends Fragment {
                 .apply(new RequestOptions().transform(new CenterCrop(), new CircleCrop()))
                 .into(imageView);
 
-        Button button = view.findViewById(R.id.btnLichSuDangKiDichVu);
-        button.setOnClickListener(v -> {
+        Button btnLichSuDangKiDichVu = view.findViewById(R.id.btnLichSuDangKiDichVu);
+        btnLichSuDangKiDichVu.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), com.example.nursinghome_android.usersubactivities.LichSuDangKiDichVu.class);
             startActivity(intent);
         });
@@ -117,8 +120,8 @@ public class SettingBlankFragment extends Fragment {
             startActivity(intent);
         });
 
-        Button button1 = view.findViewById(R.id.btnQuanLyThongTinNguoiThan);
-        button1.setOnClickListener(v -> {
+        Button btnQuanLyThongTinNguoiThan = view.findViewById(R.id.btnQuanLyThongTinNguoiThan);
+        btnQuanLyThongTinNguoiThan.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), ListUserActivity.class);
             ChooseFuture.chooseFuture = "CaiDatThongTinNguoiThan";
             startActivity(intent);
@@ -129,6 +132,19 @@ public class SettingBlankFragment extends Fragment {
             Intent intent = new Intent(getActivity(), FeedBackActivity.class);
             startActivity(intent);
         });
+
+        SharedPreferences prefs2 = getActivity().getSharedPreferences("MyPrefs", MODE_PRIVATE);
+
+        String role = prefs2.getString("role", "null");
+        View tv1 = view.findViewById(R.id.light2);
+        View tv = view.findViewById(R.id.light1);
+        if (role.equals(RoleUser.DOCTOR.toString()) || role.equals(RoleUser.NURSE.toString())) {
+            // Tạo yêu cầu GET
+            btnLichSuDangKiDichVu.setVisibility(View.GONE);
+            btnQuanLyThongTinNguoiThan.setVisibility(View.GONE);
+            tv.setVisibility(View.GONE);
+            tv1.setVisibility(View.GONE);
+        }
 
         return view;
 

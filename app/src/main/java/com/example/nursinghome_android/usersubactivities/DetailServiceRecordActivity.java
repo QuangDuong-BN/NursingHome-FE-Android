@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
@@ -76,27 +77,33 @@ public class DetailServiceRecordActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     String myResponse = response.body().string();
                     Object[] serviceRecord = parseJsonToListObject(myResponse);
-                    TextView tvMaHoaDon = findViewById(R.id.tvMaHoaDo2);
-                    TextView tvDichVuDangKi = findViewById(R.id.tvDichVuDangKi2);
-                    TextView tvNguoiThuHuong = findViewById(R.id.tvNguoiThuHuong2);
-                    TextView tvThoiGianBatDau = findViewById(R.id.tvThoiGianBatDau2);
-                    TextView tvThoiGianKetThuc = findViewById(R.id.tvThoiGianKetThuc2);
-                    TextView tvChiPhi = findViewById(R.id.tvChiPhi2);
-                    TextView tvTrangThaiThanhToan = findViewById(R.id.tvTrangThaiThanhToan2);
-                    TextView tvMaGiuong = findViewById(R.id.tvMaGiuong2);
-                    TextView tvMaPhong = findViewById(R.id.tvMaPhong2);
-                    TextView tvViTriPhong = findViewById(R.id.tvViTriPhong2);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            TextView tvMaHoaDon = findViewById(R.id.tvMaHoaDo2);
+                            TextView tvDichVuDangKi = findViewById(R.id.tvDichVuDangKi2);
+                            TextView tvNguoiThuHuong = findViewById(R.id.tvNguoiThuHuong2);
+                            TextView tvThoiGianBatDau = findViewById(R.id.tvThoiGianBatDau2);
+                            TextView tvThoiGianKetThuc = findViewById(R.id.tvThoiGianKetThuc2);
+                            TextView tvChiPhi = findViewById(R.id.tvChiPhi2);
+                            TextView tvTrangThaiThanhToan = findViewById(R.id.tvTrangThaiThanhToan2);
+                            TextView tvMaGiuong = findViewById(R.id.tvMaGiuong2);
+                            TextView tvMaPhong = findViewById(R.id.tvMaPhong2);
+                            TextView tvViTriPhong = findViewById(R.id.tvViTriPhong2);
 
-                    tvMaHoaDon.setText(StringToLong(serviceRecord[0].toString()));
-                    tvDichVuDangKi.setText(serviceRecord[1].toString());
-                    tvNguoiThuHuong.setText(serviceRecord[2].toString());
-                    tvThoiGianBatDau.setText(convertToReadableTimeFormat(serviceRecord[3].toString()));
-                    tvThoiGianKetThuc.setText(convertToReadableTimeFormat(serviceRecord[4].toString()));
-                    tvChiPhi.setText(serviceRecord[8].toString());
-                    tvTrangThaiThanhToan.setText(convertPaidAndUnPaid(serviceRecord[9].toString()));
-                    tvMaGiuong.setText(serviceRecord[5].toString());
-                    tvMaPhong.setText(serviceRecord[6].toString());
-                    tvViTriPhong.setText(serviceRecord[7].toString());
+                            tvMaHoaDon.setText(StringToLong(serviceRecord[0].toString()));
+                            tvDichVuDangKi.setText(serviceRecord[1].toString());
+                            tvNguoiThuHuong.setText(serviceRecord[2].toString());
+                            tvThoiGianBatDau.setText(convertToReadableTimeFormat(serviceRecord[3].toString()));
+                            tvThoiGianKetThuc.setText(convertToReadableTimeFormat(serviceRecord[4].toString()));
+                            tvChiPhi.setText(serviceRecord[8].toString());
+                            tvTrangThaiThanhToan.setText(convertPaidAndUnPaid(serviceRecord[9].toString()));
+                            tvMaGiuong.setText(serviceRecord[5].toString());
+                            tvMaPhong.setText(serviceRecord[6].toString());
+                            tvViTriPhong.setText(serviceRecord[7].toString());
+                        }
+                    });
+
 
                 }
             }
@@ -106,6 +113,16 @@ public class DetailServiceRecordActivity extends AppCompatActivity {
 
             }
         });
+
+        Button btnThanhToan = findViewById(R.id.btnThanhToan);
+        btnThanhToan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetailServiceRecordActivity.this, VNPayActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         Button buttonRegisterService = findViewById(R.id.btnHuyDangKi);
         buttonRegisterService.setOnClickListener(v -> {
@@ -213,15 +230,16 @@ public class DetailServiceRecordActivity extends AppCompatActivity {
             return null;
         }
     }
-    public String convertPaidAndUnPaid(String status){
-        if(status.equals("PAID")){
+
+    public String convertPaidAndUnPaid(String status) {
+        if (status.equals("PAID")) {
             return "Đã thanh toán";
-        }else{
+        } else {
             return "Chưa thanh toán";
         }
     }
 
-    public String StringToLong(String string){
+    public String StringToLong(String string) {
         Double doubleValue = Double.valueOf(string);
         Long longValue = doubleValue.longValue();
         return longValue.toString();

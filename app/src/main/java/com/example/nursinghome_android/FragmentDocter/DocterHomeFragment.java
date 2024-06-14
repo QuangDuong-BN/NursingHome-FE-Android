@@ -126,6 +126,19 @@ public class DocterHomeFragment extends Fragment {
                 .apply(new RequestOptions().transform(new CenterCrop(), new RoundedCorners(12)))
                 .into(imageView2);
 
+        CardView cardView3 = view.findViewById(R.id.cardViewLienHeNguoiThan);
+        cardView3.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), ListUserActivity.class);
+            ChooseFuture.chooseFuture = "callFamilyMember";
+            startActivity(intent);
+        });
+
+        ImageView imageView3 = view.findViewById(R.id.imageLienHeNguoiThan);
+        Glide.with(getContext())
+                .load("https://res.cloudinary.com/djq4zsauv/image/upload/v1717921329/khzilxboohdsgnca6jcq.png")
+                .apply(new RequestOptions().transform(new CenterCrop(), new RoundedCorners(12)))
+                .into(imageView3);
+
         return view;
     }
 }

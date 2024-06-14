@@ -19,7 +19,7 @@ public class VNPayActivity extends AppCompatActivity {
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webView.setWebViewClient(new Callback());
-        String url = "https://www.google.com.vn/?hl=vi";
+        String url = "http://sandbox.vnpayment.vn/tryitnow/Home/CreateOrder";
         webView.loadUrl(url);
     }
 

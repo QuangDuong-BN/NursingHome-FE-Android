@@ -71,6 +71,7 @@
             android:textStyle="normal" />
 
         <View
+            android:id="@+id/light1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginLeft="30dp"
@@ -89,6 +90,7 @@
             android:textStyle="normal" />
 
         <View
+            android:id="@+id/light2"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginLeft="30dp"

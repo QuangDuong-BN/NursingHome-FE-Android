@@ -32,43 +32,69 @@
         android:layout_margin="20dp"
         android:orientation="vertical">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayoutDate1"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:hint="Ngày bắt đầu"
-            app:boxBackgroundColor="@android:color/transparent"
-            app:boxStrokeColor="@color/colorPrimary"
-            app:hintTextColor="@color/colorPrimary">
+            android:orientation="horizontal">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextProductionDate"
-                android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutDate1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:inputType="none"
-                android:padding="12dp"
-                android:textColor="@color/colorPrimary" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginBottom="16dp"
+                android:layout_weight="1"
+                android:hint="Ngày bắt đầu"
+                app:boxBackgroundColor="@android:color/transparent"
+                app:boxStrokeColor="@color/colorPrimary"
+                app:hintTextColor="@color/colorPrimary">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayoutDate2"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextProductionDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:padding="12dp"
+                    android:textColor="@color/colorPrimary" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageButton
+                android:id="@+id/buttonOpenDialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_menu_edit" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:hint="Ngày kết thúc"
-            app:boxBackgroundColor="@android:color/transparent"
-            app:boxStrokeColor="@color/colorPrimary"
-            app:hintTextColor="@color/colorPrimary">
+            android:orientation="horizontal">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextExpirationDate"
-                android:layout_width="match_parent"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutDate2"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:inputType="none"
-                android:padding="12dp"
-                android:textColor="@color/colorPrimary" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_weight="1"
+                android:layout_marginBottom="16dp"
+                android:hint="Ngày kết thúc"
+                app:boxBackgroundColor="@android:color/transparent"
+                app:boxStrokeColor="@color/colorPrimary"
+                app:hintTextColor="@color/colorPrimary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextExpirationDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:padding="12dp"
+                    android:textColor="@color/colorPrimary" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageButton
+                android:id="@+id/buttonOpenDialog2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_menu_edit" />
+        </LinearLayout>
 
         <Spinner
             android:id="@+id/spinnerRoomType"
@@ -89,15 +115,22 @@
             android:minHeight="48dp" />
 
         <Button
-            android:id="@+id/buttonRegisterService"
-            android:layout_width="match_parent"
+        android:id="@+id/buttonRegisterService"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/custom_button"
+        android:text="Đăng kí"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/custom_button"
-            android:text="Đăng kí"
-            android:textSize="20dp"
-            android:textColor="@color/white" />
+            android:text="( Lưu ý: cần đặt trước 5 ngày, thời gian sử dụng dịch vụ sẽ bắt dầu từ 7 AM ngày bắt đầu dịch vụ đến 5 PM ngày kết thúc )"
+            android:textColor="@color/red"
+            android:textSize="16sp" />
 
     </LinearLayout>
 

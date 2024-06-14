@@ -40,10 +40,6 @@ public class DocterAndNurseActivity extends AppCompatActivity {
                         rePlace(new DocterHomeFragment());
                         break;
                     case 1:
-                        rePlace(new InfoBlankFragment());
-                        break;
-
-                    case 2:
                         rePlace(new SettingBlankFragment());
                         break;
                 }

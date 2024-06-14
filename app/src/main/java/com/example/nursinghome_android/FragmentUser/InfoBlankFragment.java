@@ -82,8 +82,9 @@ public class InfoBlankFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ChatID.chatID = "bacsi1";
-                startActivity(new Intent(getActivity(), MyZIMKitActivity.class));
+                ChatID.chatID = "manhdung@gmail.com";
+                Intent intent = new Intent(getActivity(), MyZIMKitActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -97,12 +98,11 @@ public class InfoBlankFragment extends Fragment {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ChatID.chatID = "ddhuyeen";
-                startActivity(new Intent(getActivity(), MyZIMKitActivity.class));
+                ChatID.chatID = "thuhuyen@gmail.com";
+                Intent intent2 = new Intent(getActivity(), MyZIMKitActivity.class);
+                startActivity(intent2);
             }
         });
-
-
         return view;
     }
 }

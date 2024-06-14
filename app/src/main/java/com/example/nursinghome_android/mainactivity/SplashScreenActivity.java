@@ -34,11 +34,11 @@ public class SplashScreenActivity extends AppCompatActivity {
         Window window = getWindow();
         window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
 
-        Long appId = 933237909L;    // The AppID you get from ZEGOCLOUD Admin Console.
-        String appSign = "6ff124e9cae0423d8d3e38af1edfe2a4240d35c1b3c21245277e712e4a8a0ed3";    // The App Sign you get from ZEGOCLOUD Admin Console.
-        ZIMKit.initWith(getApplication(), appId, appSign);
-        // Online notification for the initialization (use the following code if this is needed).
-        ZIMKit.initNotifications();
+//        Long appId = 933237909L;    // The AppID you get from ZEGOCLOUD Admin Console.
+//        String appSign = "6ff124e9cae0423d8d3e38af1edfe2a4240d35c1b3c21245277e712e4a8a0ed3";    // The App Sign you get from ZEGOCLOUD Admin Console.
+//        ZIMKit.initWith(getApplication(), appId, appSign);
+//        // Online notification for the initialization (use the following code if this is needed).
+//        ZIMKit.initNotifications();
 
         oneSignal();
 

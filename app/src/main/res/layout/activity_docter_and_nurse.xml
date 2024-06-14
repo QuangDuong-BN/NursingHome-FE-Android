@@ -22,5 +22,5 @@
         app:backgroundColor="@color/colorPrimary"
         app:iconSize="24dp"
         app:cornerRadius="4dp"
-        app:menu="@menu/menu_2" />
+        app:menu="@menu/menu_3" />
 </LinearLayout>

@@ -16,6 +16,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.nursinghome_android.DocterActivity.DetailNguoiThanActivity;
 import com.example.nursinghome_android.ListViewSetUp.DropdownAdapterUser;
 import com.example.nursinghome_android.R;
 import com.example.nursinghome_android.config.LoadingDialog;
@@ -168,6 +169,11 @@ public class ListUserActivity extends AppCompatActivity implements DropdownAdapt
         if (ChooseFuture.chooseFuture.equals("CaiDatThongTinNguoiThan")) {
             BookingInfo.userIdFk = id;
             Intent intent = new Intent(ListUserActivity.this, CaiDatThongTinNguoiThanActivity.class);
+            startActivity(intent);
+        }
+        if (ChooseFuture.chooseFuture.equals("callFamilyMember")) {
+            BookingInfo.userIdFk = id;
+            Intent intent = new Intent(ListUserActivity.this, DetailNguoiThanActivity.class);
             startActivity(intent);
         }
 

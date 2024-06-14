@@ -14,6 +14,7 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -25,7 +26,6 @@ import androidx.appcompat.widget.Toolbar;
 import com.example.nursinghome_android.MainMainActivity;
 import com.example.nursinghome_android.R;
 import com.example.nursinghome_android.enumcustom.RoomType;
-import com.example.nursinghome_android.mainactivity.LoginActivity;
 import com.example.nursinghome_android.valueStatic.BookingInfo;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -93,6 +93,25 @@ public class RegisterServiceActivity extends AppCompatActivity {
 
         Window window = getWindow();
         window.setStatusBarColor(getResources().getColor(R.color.colorPrimary));
+
+        spinnerBed.setVisibility(View.GONE);
+        spinnerRoom.setVisibility(View.GONE);
+
+        ImageButton buttonOpenDialog = findViewById(R.id.buttonOpenDialog);
+        buttonOpenDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDatePickerDialog1();
+            }
+        });
+
+        ImageButton buttonOpenDialog2 = findViewById(R.id.buttonOpenDialog2);
+        buttonOpenDialog2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDatePickerDialog2();
+            }
+        });
 
         // nut dang ki
         buttonRegisterService.setOnClickListener(new View.OnClickListener() {
@@ -401,23 +420,43 @@ public class RegisterServiceActivity extends AppCompatActivity {
     public void registerService() {
 
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-        Toasty.info(RegisterServiceActivity.this,
-                BookingInfo.roomIdFk + "\n" +
-                        BookingInfo.bedIdFk + "\n" +
-                        BookingInfo.productionDate + "\n" +
-                        BookingInfo.expirationDate + "\n"
-                , Toast.LENGTH_SHORT).show();
+
+
         String token = prefs.getString("token", null);
-        if (BookingInfo.roomIdFk == null || BookingInfo.bedIdFk == null || BookingInfo.productionDate == null || BookingInfo.expirationDate == null) {
-            Toast.makeText(RegisterServiceActivity.this, "Vui lòng chọn đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+        if (BookingInfo.productionDate == null || BookingInfo.expirationDate == null) {
+            SweetAlertDialog pDialog = new SweetAlertDialog(RegisterServiceActivity.this, SweetAlertDialog.ERROR_TYPE);
+            pDialog.getProgressHelper().setBarColor(Color.parseColor("#0091c1"));
+            pDialog.setTitleText("Hãy điền đầy đủ thông tin!");
+            pDialog.setCancelable(true);
+            pDialog.show();
             return;
         }
+
+        if(!isFiveYearsAhead()){
+            SweetAlertDialog pDialog = new SweetAlertDialog(RegisterServiceActivity.this, SweetAlertDialog.ERROR_TYPE);
+            pDialog.getProgressHelper().setBarColor(Color.parseColor("#0091c1"));
+            pDialog.setTitleText("Cần đặt cách ít nhất 5 ngày!");
+            pDialog.setCancelable(true);
+            pDialog.show();
+            return;
+        }
+
+        if(!isProductionDateBeforeExpirationDate()){
+            SweetAlertDialog pDialog = new SweetAlertDialog(RegisterServiceActivity.this, SweetAlertDialog.ERROR_TYPE);
+            pDialog.getProgressHelper().setBarColor(Color.parseColor("#0091c1"));
+            pDialog.setTitleText("Ngày kết thúc cần phải sau ngày bắt đầu!");
+            pDialog.setCancelable(true);
+            pDialog.show();
+            return;
+        }
+
+
 
         JSONObject jsonBody = new JSONObject();
         try {
             jsonBody.put("userIdFk", BookingInfo.userIdFk);
-            jsonBody.put("serviceInfoIdFk", BookingInfo.roomIdFk);
-            jsonBody.put("bedIdFk", BookingInfo.bedIdFk);
+            jsonBody.put("serviceInfoIdFk", BookingInfo.serviceInfoIdFk);
+//            jsonBody.put("bedIdFk", BookingInfo.bedIdFk);
             jsonBody.put("productionDate", BookingInfo.productionDate);
             jsonBody.put("expirationDate", BookingInfo.expirationDate);
             jsonBody.put("roomType", BookingInfo.roomType);
@@ -444,15 +483,21 @@ public class RegisterServiceActivity extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-//                            SweetAlertDialog pDialog = new SweetAlertDialog(getApplicationContext(), SweetAlertDialog.SUCCESS_TYPE);
-//                            pDialog.getProgressHelper().setBarColor(Color.parseColor("#0091c1"));
-//                            pDialog.setTitleText("Đăng kí thành công!");
-//                            pDialog.setCancelable(true);
-//                            pDialog.show();
-                            Toast.makeText(RegisterServiceActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(RegisterServiceActivity.this, VNPayActivity.class);
-                            startActivity(intent);
-                            finish();
+                            SweetAlertDialog pDialog = new SweetAlertDialog(RegisterServiceActivity.this, SweetAlertDialog.SUCCESS_TYPE)
+                                    .setTitleText("Thành công")
+                                    .setContentText("Đăng kí thành công")
+                                    .setConfirmText("Quay lại trang chủ!")
+                                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                        @Override
+                                        public void onClick(SweetAlertDialog sDialog) {
+                                            sDialog.dismissWithAnimation();
+                                            Intent intent = new Intent(RegisterServiceActivity.this, MainMainActivity.class);
+                                            startActivity(intent);
+                                            finish();
+                                        }
+                                    });
+
+                            pDialog.show();
                         }
                     });
 
@@ -470,5 +515,28 @@ public class RegisterServiceActivity extends AppCompatActivity {
             }
         });
     }
+
+    public static boolean isFiveYearsAhead() {
+        // Get the current date
+        Calendar calendar = Calendar.getInstance();
+
+        // Add 5 years to the current date
+        calendar.add(Calendar.DATE, 5);
+        Date currentDatePlusFive = new Date(calendar.getTimeInMillis());
+
+        // Compare the dates
+        return BookingInfo.productionDate != null && BookingInfo.productionDate.compareTo(currentDatePlusFive) >= 0;
+    }
+
+    public static boolean isProductionDateBeforeExpirationDate() {
+        // Check if both dates are not null
+        if (BookingInfo.productionDate != null && BookingInfo.expirationDate != null) {
+            // Compare the dates
+            return BookingInfo.productionDate.compareTo(BookingInfo.expirationDate) < 0;
+        }
+        // If any of the dates is null, return false
+        return false;
+    }
+
 
 }

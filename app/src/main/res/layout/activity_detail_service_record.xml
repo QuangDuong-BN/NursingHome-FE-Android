@@ -362,6 +362,16 @@
     </androidx.cardview.widget.CardView>
 
     <Button
+        android:id="@+id/btnThanhToan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="50dp"
+        android:backgroundTint="@color/green"
+        android:text="Thanh toán"
+        android:textSize="20sp" />
+    <Button
         android:id="@+id/btnHuyDangKi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

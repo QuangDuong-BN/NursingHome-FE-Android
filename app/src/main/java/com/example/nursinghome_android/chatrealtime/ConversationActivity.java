@@ -60,12 +60,9 @@ public class ConversationActivity extends AppCompatActivity {
             }
         });
 
-        startSingleChat("duongct4b@gmail.com");
-//        startSingleChat("manhdung@gmail.com");
-
+        startSingleChat(ChatID.chatID);
     }
     private void startSingleChat(String userId){
-
         ZIMKitRouter.toMessageActivity(this, userId, ZIMKitConversationType.ZIMKitConversationTypePeer);
         finish();
     }
